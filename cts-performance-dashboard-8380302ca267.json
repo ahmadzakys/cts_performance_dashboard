@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cts-performance-dashboard",
+  "private_key_id": "8380302ca26797768545f707c0860ad1e4f2c977",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDXlbMjSd6m3dA7\nTfHMIr3GVRDKzX5Qx3pJ7Ub19JnzkEpMuxftn5Qgi3CciGQYIPLroBQFNXfIDJr9\no/UX5zKMGVgDAr97Xh2T46x+1YWO3dJeyu+JDCe1ndjIw8H4nm3D01obj1rqvZ1T\nXSjf3dBIOo96K0xhwkKnJDEFKXEej2x2ONfylNS6lIJFTeNx523cg/KS+2tNrXt6\nooG3WmkC+ghN5Nu+nEEJ5SnNhdU0SmtJNZma7jMTzlnaz/ymHMD98ey1bCukTgVi\nYxAVdG+prjyA0iBAgQnIwyjIecEclS6QhB0ko/JwyX7bGCCqxnsH2HYl3itFe7YP\nvsw1JSNPAgMBAAECggEAFf3SBZ+GHu+G9lsVIgXJO293WbjB/JYyBf3hEeX0bmwh\nqCzNsWe97IlM4NWToFfRb/J8bauZScbqE0WjvYnQFjU099mn6Xsdo/XC+uKSepMW\nNU/uRMSrUv4vHGEbwF4o7vj4ZXyngZqmGdg++yyIEADT8gUeCDrmIbayFBy4yq0W\nypfodkBQanWmMGDlKsi7XKMaXGG4H2vZPMCW1Bg0BzZyuCeqN0LPNlps7iYFO/SF\nfht+jeHL2P3dhxCShju5wXUkfCqntRZd1DilyQcCUTMAIEqbmyjE1qyV93ujKCLf\nIASeUZ3Oq8ldwdfrqSnAsrycu9Z40tM9VjXNcxDSwQKBgQD2M5woDCKs3mRLwdJ5\nrW/4OdAPP79hWrLPwKVsHtRjbegwB70C+X4TwEXw/AQjek3jFR3IzLZgIzQRYz6v\nEQ89PLZoHucN12pFDCaAfl9TgYO6+COdYewCJSjsGhgvm5VWezbP2D1LKYBaVdiT\n33WC74GKSryPJJRIS7udkFvbuwKBgQDgKieMIO11XFBAfoN413AtpM3C32IOmktQ\n0m0RiT5VQO9bv5SB6Xt3LHTsUB4A5DHHuEsAIj6Zceplr+e7mtaT5QO9hHqNa8A0\nv/ukQVPINg3dARJU5sm4haDmpb37jtw8C1sMhgogh2l0JhCSKi1ctbK9/VGhFRuA\nMVvHeah7fQKBgQDMTaeX0/oyWZoBA6YVMsdnxRHSlaPKtekMXWDoh+zXVa0HrmQ6\nw67L1RI1F+yXRDa96hf9OWNeA9iBVUn/HLj4qBj17i7uXYPiKGMK3dNdCGy4CpID\nV+7xGMUMp9rKJuGWEkk50MeMR7QrQnGmxBhPv1BP4hT28/PYyn+2EMUpYQKBgBZ/\n5KxJ+cuX0m5GxIdyiE3shsKSjVMN5ZVdKZli/yCrfdrlpdBMURorGilF+Vz5io2T\nT+PZjBL2viIqv8WyyurZR8DT9UEQmaAxzN41uGUWF9og62geKg0dTIMaC7GeKzjT\novXk1kthjBIeZ/djyF3P1vr+3Byg87uwOJgS+/g5AoGAdCDbV6iPR2Lo8HjqzDZw\nkCXsrGsLu892Er7Hp9+Z3kIK6DufbG6KLBoRXys6HY98j3ROLACfS1yx789R9aaT\nVO5PiD/KXBKtxHZcl/Za52Fuk5aXCkt8p0JTT1tx2HO8uhpK8opsKdsRkhwfsGhm\nlOD5EB/5ofhoFXwyn8EjliQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "cts-performance-dashboard@cts-performance-dashboard.iam.gserviceaccount.com",
+  "client_id": "113044436935401692793",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cts-performance-dashboard%40cts-performance-dashboard.iam.gserviceaccount.com"
+}
