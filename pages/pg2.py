@@ -39,7 +39,7 @@ derawan = database.worksheet('Bulk Derawan')
 def preprocessing(df):
     total = df[['Volume Plan', 'Volume Actual']].apply(np.sum)
     avg = round(df[['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net']] \
-                .apply(np.nanmean),2)
+                .apply(np.nanmean))
     per_v = round(total['Volume Actual']/total['Volume Plan']*100)
     per_nlr = round(avg['NLR Actual']/avg['NLR Plan']*100)
     per_glr = round(avg['GLR Actual']/avg['GLR Plan']*100)
