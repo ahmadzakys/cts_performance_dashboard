@@ -21,6 +21,18 @@ derawan = database.worksheet('Bulk Derawan')
 ##-----Function
 #-- 1. Pre-Processing
 def preprocessing(df):
+    #Rename month columns
+    Month = df['Month'].astype('datetime64')
+    month_name = []
+    for i in range(len(Month)) :
+        month_name.append(Month[i].strftime('%b'))
+
+    string = '-23'
+    month_name = [x + string for x in month_name]
+    month_name[-1] = df['Month'].iloc[-1][0:2] + '-' + month_name[-1]
+    df['Month'] = month_name
+    
+    #Aggregate data
     total = df[['Volume Plan', 'Volume Actual']].apply(np.sum)
     avg = round(df[['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net']] \
                 .apply(np.nanmean),2)
@@ -30,8 +42,8 @@ def preprocessing(df):
     per_fr = round(avg['Fuel Ratio Net']/avg['Fuel Ratio Gross']*100)
     ytd = list(['YTD',
                 total['Volume Plan'], total['Volume Actual'], per_v, 
-                round(avg['NLR Plan']), round(avg['NLR Actual']), per_nlr,
-                round(avg['GLR Plan']), round(avg['GLR Actual']), per_glr,
+                avg['NLR Plan'], avg['NLR Actual'], per_nlr,
+                avg['GLR Plan'], avg['GLR Actual'], per_glr,
                 avg['Fuel Ratio Gross'], avg['Fuel Ratio Net'], per_fr,])
 
     dat = df.copy()
