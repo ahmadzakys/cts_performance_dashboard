@@ -1,9 +1,13 @@
 ######-----Import Dash-----#####
 import dash
 from dash import dcc
-from dash import html
+from dash import html, callback
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
+
+import pandas as pd
+import numpy as np
+import gspread
 
 #####-----Create a Dash app instance-----#####
 app = dash.Dash(
@@ -18,7 +22,7 @@ navbar = dbc.NavbarSimple(
     children=[
         dbc.NavLink(
                     [
-                        html.Div(page["name"], className="ms-2"),
+                    html.Div(page["name"], className="ms-2"),
                     ],
                     href=page["path"],
                     active="exact",
@@ -33,6 +37,8 @@ navbar = dbc.NavbarSimple(
 
 ## -----LAYOUT-----
 app.layout = dbc.Container([
+    dcc.Interval(id="timer", interval=1000*120, n_intervals=0),
+    dcc.Store(id="store", data={}),
     navbar,
 
     dbc.Row(
@@ -43,8 +49,126 @@ app.layout = dbc.Container([
                 ])
         ]
     )
-], fluid=True)
+], fluid=True, style={'height':'100vh'})
+
+def load_google_sheets_data():
+    cred_file = 'cts-performance-dashboard-8380302ca267.json'
+    gc = gspread.service_account(cred_file)
+
+    # Open the Google Sheets document
+    database = gc.open('Database')
+
+    data = {}
+    for sheet in database.worksheets():
+        sheet_data = sheet.get_all_records()
+        data[sheet.title] = sheet_data
+
+    return data
+
+def preprocessing(df):
+    #Rename month columns
+    dat = df.copy()
+    Month = pd.to_datetime(dat['Month'], dayfirst=True)
+    month_name = []
+    for i in range(len(Month)) :
+        month_name.append(Month[i].strftime('%b'))
+
+    string = '-23'
+    month_name = [x + string for x in month_name]
+    month_name[-1] = dat['Month'].iloc[-1][0:2] + '-' + month_name[-1]
+    dat['Month'] = month_name
+    
+    #Aggregate data
+    total = dat[['Volume Plan', 'Volume Actual']].apply(np.sum)
+    avg = round(dat[['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net']] \
+                .apply(np.nanmean),2)
+    per_v = round(total['Volume Actual']/total['Volume Plan']*100)
+    per_nlr = round(avg['NLR Actual']/avg['NLR Plan']*100)
+    per_glr = round(avg['GLR Actual']/avg['GLR Plan']*100)
+    per_fr = round(avg['Fuel Ratio Net']/avg['Fuel Ratio Gross']*100)
+    ytd = list(['YTD',
+                total['Volume Plan'], total['Volume Actual'], per_v, 
+                round(avg['NLR Plan']), round(avg['NLR Actual']), per_nlr,
+                round(avg['GLR Plan']), round(avg['GLR Actual']), per_glr,
+                avg['Fuel Ratio Gross'], avg['Fuel Ratio Net'], per_fr,])
+
+    dat.loc[len(dat)] = ytd
+
+    # dat_borneo.style.format(thousands=",")
+
+    return(dat)
+
+@callback(
+    Output('store', 'data'),
+    Input('timer', 'n_intervals')
+)
+def update_data(n):
+    data = load_google_sheets_data()
+
+    df_sumatra = pd.DataFrame(data['Bulk Sumatra'])
+    #-- 1. Bulk Borneo
+    df_borneo = pd.DataFrame(data['Bulk Borneo'])
+    df_borneo = df_borneo.replace(r'^\s*$', np.nan, regex=True)
+    dat_borneo = preprocessing(df_borneo)
+
+    #-- 2. Bulk Celebes
+    df_celebes = pd.DataFrame(data['Bulk Celebes'])
+    df_celebes = df_celebes.replace(r'^\s*$', np.nan, regex=True)
+    dat_celebes = preprocessing(df_celebes)
+
+    #-- 3. Bulk Sumatra
+    df_sumatra = pd.DataFrame(data['Bulk Sumatra'])
+    df_sumatra = df_sumatra.replace(r'^\s*$', np.nan, regex=True)
+    dat_sumatra = preprocessing(df_sumatra)
+
+    #-- 4. Bulk Java
+    df_java = pd.DataFrame(data['Bulk Java'])
+    df_java = df_java.replace(r'^\s*$', np.nan, regex=True)
+    dat_java = preprocessing(df_java)
+
+    #-- 5. Bulk Dewata
+    df_dewata = pd.DataFrame(data['Bulk Dewata'])
+    df_dewata = df_dewata.replace(r'^\s*$', np.nan, regex=True)
+    dat_dewata = preprocessing(df_dewata)
+
+    #-- 6. Bulk Karimun
+    df_karimun = pd.DataFrame(data['Bulk Karimun'])
+    df_karimun = df_karimun.replace(r'^\s*$', np.nan, regex=True)
+    dat_karimun = preprocessing(df_karimun)
+
+    #-- 7. Ocean Flow 1
+    df_of1 = pd.DataFrame(data['Ocean Flow 1'])
+    df_of1 = df_of1.replace(r'^\s*$', np.nan, regex=True)
+    dat_of1 = preprocessing(df_of1)
+
+    #-- 8. Bulk Natuna
+    df_natuna = pd.DataFrame(data['Bulk Natuna'])
+    df_natuna = df_natuna.replace(r'^\s*$', np.nan, regex=True)
+    dat_natuna = preprocessing(df_natuna)
+
+    #-- 9. Bulk Sumba
+    df_sumba = pd.DataFrame(data['Bulk Sumba'])
+    df_sumba = df_sumba.replace(r'^\s*$', np.nan, regex=True)
+    dat_sumba = preprocessing(df_sumba)
+
+    #-- 10. Bulk Derawan
+    df_derawan = pd.DataFrame(data['Bulk Derawan'])
+    df_derawan = df_derawan.replace(r'^\s*$', np.nan, regex=True)
+    dat_derawan = preprocessing(df_derawan)
+
+    data_dict = {'Bulk Borneo':dat_borneo.to_dict('records'), 
+                 'Bulk Celebes':dat_celebes.to_dict('records'),
+                 'Bulk Sumatra':dat_sumatra.to_dict('records'),
+                 'Bulk Java':dat_java.to_dict('records'),
+                 'Bulk Dewata':dat_dewata.to_dict('records'),
+                 'Bulk Karimun':dat_karimun.to_dict('records'),
+                 'Ocean Flow 1':dat_of1.to_dict('records'),
+                 'Bulk Natuna':dat_natuna.to_dict('records'),
+                 'Bulk Sumba':dat_sumba.to_dict('records'),
+                 'Bulk Derawan':dat_derawan.to_dict('records')}
+
+    return data_dict
 
 ######-----Start the Dash server-----#####
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(debug=True)
