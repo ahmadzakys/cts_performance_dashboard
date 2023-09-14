@@ -37,7 +37,7 @@ navbar = dbc.NavbarSimple(
 
 ## -----LAYOUT-----
 app.layout = dbc.Container([
-    dcc.Interval(id="timer", interval=1000*120, n_intervals=0),
+    dcc.Interval(id="timer", interval=1000*3600*24, n_intervals=0),
     dcc.Store(id="store", data={}),
     navbar,
 
@@ -171,4 +171,4 @@ def update_data(n):
 
 ######-----Start the Dash server-----#####
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server()
