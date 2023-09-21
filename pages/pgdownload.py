@@ -328,7 +328,7 @@ def update_charts(n_clicks, data):
 
         # return dcc.send_bytes(to_pptx, 'Equipment Dashboard.pptx')
     
-    return dcc.send_bytes(to_pptx, 'Equipment Dashboard.pptx'), download_date
+    return dcc.send_bytes(to_pptx, 'CTS Performance.pptx'), download_date
 
 
 ######################
