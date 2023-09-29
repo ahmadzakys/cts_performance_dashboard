@@ -201,12 +201,12 @@ def update_charts(n_clicks, data):
         # slide1 NLR Berau Coal
         slide1.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD'
         slide1.placeholders[17].text = 'Berau Coal' 
-        slide1.shapes.add_picture('img/NLR Bulk Sumatra.png', Cm(1.5), Cm(2.2), Cm(8.5), Cm(5))
-        slide1.shapes.add_picture('img/NLR Bulk Dewata.png', Cm(12.7), Cm(2.2), Cm(8.5), Cm(5))
-        slide1.shapes.add_picture('img/NLR Bulk Karimun.png', Cm(23.55), Cm(2.2), Cm(8.5), Cm(5))
-        slide1.shapes.add_picture('img/NLR Bulk Derawan.png', Cm(1.5), Cm(10.2), Cm(8.5), Cm(5))
-        slide1.shapes.add_picture('img/NLR Ocean Flow 1.png', Cm(12.7), Cm(10.2), Cm(8.5), Cm(5))
-        slide1.shapes.add_picture('img/NLR Bulk Sumba.png', Cm(23.55), Cm(10.2), Cm(8.5), Cm(5))
+        slide1.shapes.add_picture('img/NLR Bulk Sumatra.png', Cm(0.5), Cm(1.5), Cm(10.2), Cm(6))
+        slide1.shapes.add_picture('img/NLR Bulk Dewata.png', Cm(11.7), Cm(1.5), Cm(10.2), Cm(6))
+        slide1.shapes.add_picture('img/NLR Bulk Karimun.png', Cm(23), Cm(1.5), Cm(10.2), Cm(6))
+        slide1.shapes.add_picture('img/NLR Bulk Derawan.png', Cm(0.5), Cm(9.3), Cm(10.2), Cm(6))
+        slide1.shapes.add_picture('img/NLR Ocean Flow 1.png', Cm(11.7), Cm(9.3), Cm(10.2), Cm(6))
+        slide1.shapes.add_picture('img/NLR Bulk Sumba.png', Cm(23), Cm(9.3), Cm(10.2), Cm(6))
 
         slide1.shapes.add_picture('img/yellow bullet.png', Cm(0.75), Cm(7.5))
         slide1.shapes.add_picture('img/yellow bullet.png', Cm(12), Cm(7.5))
@@ -218,12 +218,12 @@ def update_charts(n_clicks, data):
         # slide2 GLR Berau Coal
         slide2.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD'
         slide2.placeholders[17].text = 'Berau Coal' 
-        slide2.shapes.add_picture('img/GLR Bulk Sumatra.png', Cm(1.5), Cm(2.2), Cm(8.5), Cm(5))
-        slide2.shapes.add_picture('img/GLR Bulk Dewata.png', Cm(12.7), Cm(2.2), Cm(8.5), Cm(5))
-        slide2.shapes.add_picture('img/GLR Bulk Karimun.png', Cm(23.55), Cm(2.2), Cm(8.5), Cm(5))
-        slide2.shapes.add_picture('img/GLR Bulk Derawan.png', Cm(1.5), Cm(10.2), Cm(8.5), Cm(5))
-        slide2.shapes.add_picture('img/GLR Ocean Flow 1.png', Cm(12.7), Cm(10.2), Cm(8.5), Cm(5))
-        slide2.shapes.add_picture('img/GLR Bulk Sumba.png', Cm(23.55), Cm(10.2), Cm(8.5), Cm(5))
+        slide2.shapes.add_picture('img/GLR Bulk Sumatra.png', Cm(0.5), Cm(1.5), Cm(10.2), Cm(6))
+        slide2.shapes.add_picture('img/GLR Bulk Dewata.png', Cm(11.7), Cm(1.5), Cm(10.2), Cm(6))
+        slide2.shapes.add_picture('img/GLR Bulk Karimun.png', Cm(23), Cm(1.5), Cm(10.2), Cm(6))
+        slide2.shapes.add_picture('img/GLR Bulk Derawan.png', Cm(0.5), Cm(9.3), Cm(10.2), Cm(6))
+        slide2.shapes.add_picture('img/GLR Ocean Flow 1.png', Cm(11.7), Cm(9.3), Cm(10.2), Cm(6))
+        slide2.shapes.add_picture('img/GLR Bulk Sumba.png', Cm(23), Cm(9.3), Cm(10.2), Cm(6))
 
         slide2.shapes.add_picture('img/yellow bullet.png', Cm(0.75), Cm(7.5))
         slide2.shapes.add_picture('img/yellow bullet.png', Cm(12), Cm(7.5))
