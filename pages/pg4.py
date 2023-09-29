@@ -117,45 +117,48 @@ def update_charts(data):
     dat_derawan = pd.DataFrame(data['Bulk Derawan'])
     
     ##-----Plot Volume
-    fr_borneo = plot_fr(dat_borneo, "Fuel Ratio Bulk Borneo")
-    fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes")
-    fr_sumatra = plot_fr(dat_sumatra, "Fuel Ratio Bulk Sumatra")
-    fr_java = plot_fr(dat_java, 'Fuel Ratio Bulk Java')
-    fr_dewata = plot_fr(dat_dewata, 'Fuel Ratio Bulk Dewata')
-    fr_karimun = plot_fr(dat_karimun, 'Fuel Ratio Bulk Karimun')
-    fr_of1 = plot_fr(dat_of1, 'Fuel Ratio Ocean Flow 1')
-    fr_natuna = plot_fr(dat_natuna, 'Fuel Ratio Bulk Natuna')
-    fr_sumba = plot_fr(dat_sumba, 'Fuel Ratio Bulk Sumba')
-    fr_derawan = plot_fr(dat_derawan, 'Fuel Ratio Bulk Derawan')
+    fr_sumatra = plot_fr(dat_sumatra, "Fuel Ratio Bulk Sumatra", 0.24)
+    fr_dewata = plot_fr(dat_dewata, "Fuel Ratio Bulk Dewata", 0.29)
+    fr_karimun = plot_fr(dat_karimun, "Fuel Ratio Bulk Karimun", 0.25)
+    fr_derawan = plot_fr(dat_derawan, "Fuel Ratio Bulk Derawan", 0.33)
+    fr_of1 = plot_fr(dat_of1, "Fuel Ratio Ocean Flow 1", 0.32)
+    fr_sumba = plot_fr(dat_sumba, "Fuel Ratio Bulk Sumba", 0.32)
+    fr_java = plot_fr(dat_java, "Fuel Ratio Bulk Java", 0.27)
+    fr_natuna = plot_fr(dat_natuna, "Fuel Ratio Bulk Natuna", 0.40)
+    fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes", 0.24)
+    fr_borneo = plot_fr(dat_borneo, "Fuel Ratio Bulk Borneo", 0.24)
 
 
     return fr_borneo, fr_celebes, fr_sumatra, fr_java, fr_dewata, fr_karimun, fr_of1, fr_natuna, fr_sumba, fr_derawan
 
 ##-----Function
 #-- 4. Fuel Ratio Function
-def plot_fr(df, title):
+def plot_fr(df, title, baseline):
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['Fuel Ratio Gross'].tail(4),
         name='Gross',
         text=df['Fuel Ratio Gross'].tail(4),
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='lightblue'))
+        marker_color='#5b9bd5'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['Fuel Ratio Net'].tail(4),
         name='Net',
         text=df['Fuel Ratio Net'].tail(4),
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
         marker_color='lightsalmon'))
     fig.update_layout({
+        'margin' : {'t':3, 'b':3, 'l':15, 'r':15},
         'plot_bgcolor': 'rgba(0, 0, 0, 0)',
         'paper_bgcolor': 'rgba(0, 0, 0, 0)',},
         title={
-            'text': title,
+            'text': f'<b>{title}</b>',
             'y':0.9,
             'x':0.5,
             'xanchor': 'center',
@@ -165,12 +168,35 @@ def plot_fr(df, title):
             'y':-0.25,
             'xanchor':"center",
             'x':0.5},
+        yaxis_range=[0,(df['Fuel Ratio Gross'].max())*1.8],
+        bargroupgap=0.165,
+        bargap=0.25,
         hovermode="x")
+    
+    fig.add_hline(y=baseline, line_width=2, line_dash="dash", line_color="red")
+    fig.add_annotation(
+        x=3.5,
+        y=baseline+0.03,
+        xref="x",
+        yref="y",
+        text=baseline,
+        showarrow=False,
+        font=dict(
+            family="Verdana",
+            color="#ffffff"
+            ),
+        align="center",
+        # bordercolor="#c7c7c7",
+        borderwidth=1,
+        borderpad=2,
+        bgcolor="red",
+        opacity=0.8
+        )
 
     labels = list(df['Month'])
     labels[-1] = "AVG YTD'23"
 
-    fig.update_xaxes(tickvals=np.arange(4), ticktext=labels[-4:])
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#d62728', griddash='dash')
+    fig.update_xaxes(linecolor='#e1e6e6', tickvals=np.arange(4), ticktext=labels[-4:])
+    fig.update_yaxes(showgrid=False, visible=False)
     
     return(fig)

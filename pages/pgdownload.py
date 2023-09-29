@@ -112,16 +112,16 @@ def update_charts(n_clicks, data):
     glr_celebes = plot_glr(dat_celebes, "GLR Bulk Celebes")
     glr_borneo = plot_glr(dat_borneo, "GLR Bulk Borneo")
 
-    fr_sumatra = plot_fr(dat_sumatra, "Fuel Ratio Bulk Sumatra")
-    fr_dewata = plot_fr(dat_dewata, "Fuel Ratio Bulk Dewata")
-    fr_karimun = plot_fr(dat_karimun, "Fuel Ratio Bulk Karimun")
-    fr_derawan = plot_fr(dat_derawan, "Fuel Ratio Bulk Derawan")
-    fr_of1 = plot_fr(dat_of1, "Fuel Ratio Ocean Flow 1")
-    fr_sumba = plot_fr(dat_sumba, "Fuel Ratio Bulk Sumba")
-    fr_java = plot_fr(dat_java, "Fuel Ratio Bulk Java")
-    fr_natuna = plot_fr(dat_natuna, "Fuel Ratio Bulk Natuna")
-    fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes")
-    fr_borneo = plot_fr(dat_borneo, "Fuel Ratio Bulk Borneo")
+    fr_sumatra = plot_fr(dat_sumatra, "Fuel Ratio Bulk Sumatra", 0.24)
+    fr_dewata = plot_fr(dat_dewata, "Fuel Ratio Bulk Dewata", 0.29)
+    fr_karimun = plot_fr(dat_karimun, "Fuel Ratio Bulk Karimun", 0.25)
+    fr_derawan = plot_fr(dat_derawan, "Fuel Ratio Bulk Derawan", 0.33)
+    fr_of1 = plot_fr(dat_of1, "Fuel Ratio Ocean Flow 1", 0.32)
+    fr_sumba = plot_fr(dat_sumba, "Fuel Ratio Bulk Sumba", 0.32)
+    fr_java = plot_fr(dat_java, "Fuel Ratio Bulk Java", 0.27)
+    fr_natuna = plot_fr(dat_natuna, "Fuel Ratio Bulk Natuna", 0.40)
+    fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes", 0.24)
+    fr_borneo = plot_fr(dat_borneo, "Fuel Ratio Bulk Borneo", 0.24)
 
     # Save img
     pio.write_image(volume_sumatra, 'img/Volume Bulk Sumatra.png')
@@ -325,10 +325,8 @@ def update_charts(n_clicks, data):
 
         # Saving the PowerPoint presentation
         prs.save(bytes_io)    
-
-        # return dcc.send_bytes(to_pptx, 'Equipment Dashboard.pptx')
     
-    return dcc.send_bytes(to_pptx, 'CTS Performance.pptx'), download_date
+    return dcc.send_bytes(to_pptx, 'CTS Performance Dashboard.pptx'), download_date
 
 
 ######################
@@ -344,15 +342,17 @@ def plot_volume(df, title):
         name='Plan',
         text=df['Volume Plan'].tail(4),
         textfont_size=48,
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='lightblue'))
+        marker_color='#5b9bd5'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['Volume Actual'].tail(4),
         name='Actual',
         text=df['Volume Actual'].tail(4),
         textfont_size=48,
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
         marker_color='lightsalmon'))
@@ -378,11 +378,14 @@ def plot_volume(df, title):
             'font':{'size':40}},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
+        yaxis_range=[0,(df['Volume Plan'].iloc[-1])*1.65],
+        bargroupgap=0.165,
+        bargap=0.25,
         hovermode="x",
         shapes=[go.layout.Shape(type='rect', 
                                 xref='paper',
                                 yref='paper',
-                                x0=-0.065,
+                                x0=0,
                                 y0=-0.25,
                                 x1=1,
                                 y1=1.25,
@@ -391,8 +394,8 @@ def plot_volume(df, title):
     labels = list(df['Month'])
     labels[-1] = "YTD'23"
 
-    fig.update_xaxes(tickvals=np.arange(4), ticktext=labels[-4:])
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#d62728', griddash='dash')
+    fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
+    fig.update_yaxes(showgrid=False, visible=False)
     
     return(fig)
 
@@ -405,15 +408,17 @@ def plot_nlr(df, title):
         name='Plan',
         text=df['NLR Plan'].tail(4),
         textfont_size=48,
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='lightblue'))
+        marker_color='#5b9bd5'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['NLR Actual'].tail(4),
         name='Actual',
         text=df['NLR Actual'].tail(4),
         textfont_size=48,
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
         marker_color='lightsalmon'))
@@ -439,11 +444,14 @@ def plot_nlr(df, title):
             'font':{'size':40}},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
+        yaxis_range=[0,(df['NLR Plan'].iloc[-1])*1.65],
+        bargroupgap=0.165,
+        bargap=0.25,
         hovermode="x",
         shapes=[go.layout.Shape(type='rect', 
                                 xref='paper',
                                 yref='paper',
-                                x0=-0.048,
+                                x0=0,
                                 y0=-0.25,
                                 x1=1,
                                 y1=1.25,
@@ -452,8 +460,8 @@ def plot_nlr(df, title):
     labels = list(df['Month'])
     labels[-1] = "AVG YTD'23"
 
-    fig.update_xaxes(tickvals=np.arange(4), ticktext=labels[-4:])
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#d62728', griddash='dash')
+    fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
+    fig.update_yaxes(showgrid=False, visible=False)
     
     return(fig)
 
@@ -466,15 +474,17 @@ def plot_glr(df, title):
         name='Plan',
         text=df['GLR Plan'].tail(4),
         textfont_size=48,
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='lightblue'))
+        marker_color='#5b9bd5'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['GLR Actual'].tail(4),
         name='Actual',
         text=df['GLR Actual'].tail(4),
         textfont_size=48,
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
         marker_color='lightsalmon'))
@@ -500,11 +510,14 @@ def plot_glr(df, title):
             'font':{'size':40}},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
+        yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.65],
+        bargroupgap=0.165,
+        bargap=0.25,
         hovermode="x",
         shapes=[go.layout.Shape(type='rect', 
                                 xref='paper',
                                 yref='paper',
-                                x0=-0.048,
+                                x0=0,
                                 y0=-0.25,
                                 x1=1,
                                 y1=1.25,
@@ -513,13 +526,13 @@ def plot_glr(df, title):
     labels = list(df['Month'])
     labels[-1] = "AVG YTD'23"
 
-    fig.update_xaxes(tickvals=np.arange(4), ticktext=labels[-4:])
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#d62728', griddash='dash')
+    fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
+    fig.update_yaxes(showgrid=False, visible=False)
     
     return(fig)
 
 #-- 4. Fuel Ratio Function
-def plot_fr(df, title):
+def plot_fr(df, title, baseline):
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
@@ -527,15 +540,17 @@ def plot_fr(df, title):
         name='Gross',
         text=df['Fuel Ratio Gross'].tail(4),
         textfont_size=48,
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='lightblue'))
+        marker_color='#5b9bd5'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['Fuel Ratio Net'].tail(4),
         name='Net',
         text=df['Fuel Ratio Net'].tail(4),
         textfont_size=48,
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
         marker_color='lightsalmon'))
@@ -561,20 +576,44 @@ def plot_fr(df, title):
             'font':{'size':40}},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
+        yaxis_range=[0,(df['Fuel Ratio Gross'].max())*1.65],
+        bargroupgap=0.165,
+        bargap=0.25,
         hovermode="x",
         shapes=[go.layout.Shape(type='rect', 
                                 xref='paper',
                                 yref='paper',
-                                x0=-0.058,
+                                x0=0,
                                 y0=-0.25,
                                 x1=1,
                                 y1=1.25,
                                 line={'width': 2, 'color': 'black'})])
 
+    fig.add_hline(y=baseline, line_width=2, line_dash="dash", line_color="red")
+    fig.add_annotation(
+        x=3.5,
+        y=baseline+0.03,
+        xref="x",
+        yref="y",
+        text=baseline,
+        showarrow=False,
+        font=dict(
+            family="Verdana",
+            size=48,
+            color="#ffffff"
+            ),
+        align="center",
+        bordercolor="#c7c7c7",
+        borderwidth=2,
+        borderpad=4,
+        bgcolor="red",
+        opacity=0.8
+        )
+    
     labels = list(df['Month'])
     labels[-1] = "AVG YTD'23"
 
-    fig.update_xaxes(tickvals=np.arange(4), ticktext=labels[-4:])
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#d62728', griddash='dash')
+    fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
+    fig.update_yaxes(showgrid=False, visible=False)
     
     return(fig)

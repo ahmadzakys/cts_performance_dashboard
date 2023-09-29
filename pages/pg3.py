@@ -140,22 +140,25 @@ def plot_glr(df, title):
         y=df['GLR Plan'].tail(4),
         name='Plan',
         text=df['GLR Plan'].tail(4),
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='lightblue'))
+        marker_color='#5b9bd5'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['GLR Actual'].tail(4),
         name='Actual',
         text=df['GLR Actual'].tail(4),
+        textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
         marker_color='lightsalmon'))
     fig.update_layout({
+        'margin' : {'t':3, 'b':3, 'l':15, 'r':15},
         'plot_bgcolor': 'rgba(0, 0, 0, 0)',
         'paper_bgcolor': 'rgba(0, 0, 0, 0)',},
         title={
-            'text': title,
+            'text': f'<b>{title}</b>',
             'y':0.9,
             'x':0.5,
             'xanchor': 'center',
@@ -165,12 +168,15 @@ def plot_glr(df, title):
             'y':-0.25,
             'xanchor':"center",
             'x':0.5},
+        yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.8],
+        bargroupgap=0.165,
+        bargap=0.25,
         hovermode="x")
 
     labels = list(df['Month'])
     labels[-1] = "AVG YTD'23"
 
-    fig.update_xaxes(tickvals=np.arange(4), ticktext=labels[-4:])
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#d62728', griddash='dash')
+    fig.update_xaxes(linecolor='#e1e6e6', tickvals=np.arange(4), ticktext=labels[-4:])
+    fig.update_yaxes(showgrid=False, visible=False)
     
     return(fig)
