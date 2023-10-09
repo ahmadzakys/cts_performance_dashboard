@@ -37,7 +37,7 @@ navbar = dbc.NavbarSimple(
 
 ## -----LAYOUT-----
 app.layout = dbc.Container([
-    dcc.Interval(id="timer", interval=1000*3600*24, n_intervals=0),
+    dcc.Interval(id="timer", interval=1000*120, n_intervals=0),
     dcc.Store(id="store", data={}),
     navbar,
 
@@ -66,9 +66,10 @@ def load_google_sheets_data():
     return data
 
 def preprocessing(df):
-    #Rename month columns
     dat = df.copy()
-    Month = pd.to_datetime(dat['Month'], dayfirst=True)
+    #Rename month columns
+    #Month = dat['Month'].astype('datetime64')
+    Month = pd.to_datetime(df['Month'], dayfirst=True)
     month_name = []
     for i in range(len(Month)) :
         month_name.append(Month[i].strftime('%b'))
@@ -80,17 +81,31 @@ def preprocessing(df):
     
     #Aggregate data
     total = dat[['Volume Plan', 'Volume Actual']].apply(np.sum)
-    avg = round(dat[['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net']] \
-                .apply(np.nanmean),2)
+    avg = round(dat[['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net',
+                     'NLR Single', 'NLR Blending', 'NLR Gear', 'NLR Barge',  
+                     'GLR Single', 'GLR Blending', 'GLR Gear', 'GLR Barge']].apply(np.nanmean),2)
     per_v = round(total['Volume Actual']/total['Volume Plan']*100)
     per_nlr = round(avg['NLR Actual']/avg['NLR Plan']*100)
     per_glr = round(avg['GLR Actual']/avg['GLR Plan']*100)
     per_fr = round(avg['Fuel Ratio Net']/avg['Fuel Ratio Gross']*100)
+    
+    loadrate = ['NLR Single', 'NLR Blending', 'NLR Gear', 'NLR Barge',  
+                'GLR Single', 'GLR Blending', 'GLR Gear', 'GLR Barge']
+    for i in loadrate:
+        if np.isnan(avg[i]):
+            avg[i]=0
+        
     ytd = list(['YTD',
                 total['Volume Plan'], total['Volume Actual'], per_v, 
                 round(avg['NLR Plan']), round(avg['NLR Actual']), per_nlr,
                 round(avg['GLR Plan']), round(avg['GLR Actual']), per_glr,
-                avg['Fuel Ratio Gross'], avg['Fuel Ratio Net'], per_fr,])
+                avg['Fuel Ratio Gross'], avg['Fuel Ratio Net'], per_fr,
+                round(avg['NLR Single']), round(avg['NLR Blending']), round(avg['NLR Gear']), round(avg['NLR Barge']),
+                round(avg['GLR Single']), round(avg['GLR Blending']), round(avg['GLR Gear']), round(avg['GLR Barge'])])
+    
+    for i in range(len(ytd)):
+        if ytd[i]==0:
+            ytd[i]=np.nan
 
     dat.loc[len(dat)] = ytd
 
@@ -171,4 +186,4 @@ def update_data(n):
 
 ######-----Start the Dash server-----#####
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(debug=True)
