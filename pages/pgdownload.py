@@ -123,6 +123,28 @@ def update_charts(n_clicks, data):
     fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes", 0.24)
     fr_borneo = plot_fr(dat_borneo, "Fuel Ratio Bulk Borneo", 0.24)
 
+    nlr_type_sumatra = plot_nlr_type(dat_sumatra, "NLR Bulk Sumatra")
+    nlr_type_dewata = plot_nlr_type(dat_dewata, "NLR Bulk Dewata")
+    nlr_type_karimun = plot_nlr_type(dat_karimun, "NLR Bulk Karimun")
+    nlr_type_derawan = plot_nlr_type(dat_derawan, "NLR Bulk Derawan")
+    nlr_type_of1 = plot_nlr_type(dat_of1, "NLR Ocean Flow 1")
+    nlr_type_sumba = plot_nlr_type(dat_sumba, "NLR Bulk Sumba")
+    nlr_type_java = plot_nlr_type(dat_java, "NLR Bulk Java")
+    nlr_type_natuna = plot_nlr_type(dat_natuna, "NLR Bulk Natuna")
+    nlr_type_celebes = plot_nlr_type(dat_celebes, "NLR Bulk Celebes")
+    nlr_type_borneo = plot_nlr_type(dat_borneo, "NLR Bulk Borneo")
+
+    glr_type_sumatra = plot_glr_type(dat_sumatra, "GLR Bulk Sumatra")
+    glr_type_dewata = plot_glr_type(dat_dewata, "GLR Bulk Dewata")
+    glr_type_karimun = plot_glr_type(dat_karimun, "GLR Bulk Karimun")
+    glr_type_derawan = plot_glr_type(dat_derawan, "GLR Bulk Derawan")
+    glr_type_of1 = plot_glr_type(dat_of1, "GLR Ocean Flow 1")
+    glr_type_sumba = plot_glr_type(dat_sumba, "GLR Bulk Sumba")
+    glr_type_java = plot_glr_type(dat_java, "GLR Bulk Java")
+    glr_type_natuna = plot_glr_type(dat_natuna, "GLR Bulk Natuna")
+    glr_type_celebes = plot_glr_type(dat_celebes, "GLR Bulk Celebes")
+    glr_type_borneo = plot_glr_type(dat_borneo, "GLR Bulk Borneo")
+
     # Save img
     pio.write_image(volume_sumatra, 'img/Volume Bulk Sumatra.png')
     pio.write_image(volume_dewata, 'img/Volume Bulk Dewata.png')
@@ -166,7 +188,29 @@ def update_charts(n_clicks, data):
     pio.write_image(fr_java, 'img/Fuel Ratio Bulk Java.png')
     pio.write_image(fr_natuna, 'img/Fuel Ratio Bulk Natuna.png')
     pio.write_image(fr_celebes, 'img/Fuel Ratio Bulk Celebes.png')
-    pio.write_image(fr_borneo, 'img/Fuel Ratio Bulk Borneo.png')    
+    pio.write_image(fr_borneo, 'img/Fuel Ratio Bulk Borneo.png')
+
+    pio.write_image(nlr_type_sumatra, 'img/NLR_type Bulk Sumatra.png')
+    pio.write_image(nlr_type_dewata, 'img/NLR_type Bulk Dewata.png')
+    pio.write_image(nlr_type_karimun, 'img/NLR_type Bulk Karimun.png')
+    pio.write_image(nlr_type_derawan, 'img/NLR_type Bulk Derawan.png')
+    pio.write_image(nlr_type_of1, 'img/NLR_type Ocean Flow 1.png')
+    pio.write_image(nlr_type_sumba, 'img/NLR_type Bulk Sumba.png')
+    pio.write_image(nlr_type_java, 'img/NLR_type Bulk Java.png')
+    pio.write_image(nlr_type_natuna, 'img/NLR_type Bulk Natuna.png')
+    pio.write_image(nlr_type_celebes, 'img/NLR_type Bulk Celebes.png')
+    pio.write_image(nlr_type_borneo, 'img/NLR_type Bulk Borneo.png')
+
+    pio.write_image(glr_type_sumatra, 'img/GLR_type Bulk Sumatra.png')
+    pio.write_image(glr_type_dewata, 'img/GLR_type Bulk Dewata.png')
+    pio.write_image(glr_type_karimun, 'img/GLR_type Bulk Karimun.png')
+    pio.write_image(glr_type_derawan, 'img/GLR_type Bulk Derawan.png')
+    pio.write_image(glr_type_of1, 'img/GLR_type Ocean Flow 1.png')
+    pio.write_image(glr_type_sumba, 'img/GLR_type Bulk Sumba.png')
+    pio.write_image(glr_type_java, 'img/GLR_type Bulk Java.png')
+    pio.write_image(glr_type_natuna, 'img/GLR_type Bulk Natuna.png')
+    pio.write_image(glr_type_celebes, 'img/GLR_type Bulk Celebes.png')
+    pio.write_image(glr_type_borneo, 'img/GLR_type Bulk Borneo.png')    
 
     path = os.getcwd()
     download_date = html.Strong('Downloaded slides as per ' + str(dat_sumatra['Month'].iloc[-2]))
@@ -180,16 +224,21 @@ def update_charts(n_clicks, data):
         slide = prs.slides.add_slide(prs.slide_layouts[0])
         slide1 = prs.slides.add_slide(prs.slide_layouts[1])
         slide2 = prs.slides.add_slide(prs.slide_layouts[1])
-        slide3 = prs.slides.add_slide(prs.slide_layouts[2])
-        slide4 = prs.slides.add_slide(prs.slide_layouts[2])
-        slide5 = prs.slides.add_slide(prs.slide_layouts[2])
-        slide6 = prs.slides.add_slide(prs.slide_layouts[2])
-        slide7 = prs.slides.add_slide(prs.slide_layouts[2])
-        slide8 = prs.slides.add_slide(prs.slide_layouts[2])
-        slide9 = prs.slides.add_slide(prs.slide_layouts[2])
-        slide10 = prs.slides.add_slide(prs.slide_layouts[2])
-        slide11 = prs.slides.add_slide(prs.slide_layouts[2])
-        slide12 = prs.slides.add_slide(prs.slide_layouts[2])
+        slide3 = prs.slides.add_slide(prs.slide_layouts[1])
+        slide4 = prs.slides.add_slide(prs.slide_layouts[1])
+        slide5 = prs.slides.add_slide(prs.slide_layouts[1])
+        slide6 = prs.slides.add_slide(prs.slide_layouts[1])
+
+        slide7 = prs.slides.add_slide(prs.slide_layouts[3])
+        slide8 = prs.slides.add_slide(prs.slide_layouts[3])
+        slide9 = prs.slides.add_slide(prs.slide_layouts[3])
+        slide10 = prs.slides.add_slide(prs.slide_layouts[3])
+        slide11 = prs.slides.add_slide(prs.slide_layouts[3])
+        slide12 = prs.slides.add_slide(prs.slide_layouts[3])
+        slide13 = prs.slides.add_slide(prs.slide_layouts[3])
+        slide14 = prs.slides.add_slide(prs.slide_layouts[3])
+        slide15 = prs.slides.add_slide(prs.slide_layouts[3])
+        slide16 = prs.slides.add_slide(prs.slide_layouts[3])
 
         # title slide
         title = slide.shapes.title
@@ -198,129 +247,150 @@ def update_charts(n_clicks, data):
         subtitle.text = str(dat_sumatra['Month'].iloc[-2])
 
 
-        # slide1 NLR Berau Coal
-        slide1.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD'
+        # slide1 Berau Coal
+        slide1.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK SUMATRA'
         slide1.placeholders[17].text = 'Berau Coal' 
-        slide1.shapes.add_picture('img/NLR Bulk Sumatra.png', Cm(0.5), Cm(1.5), Cm(10.2), Cm(6))
-        slide1.shapes.add_picture('img/NLR Bulk Dewata.png', Cm(11.7), Cm(1.5), Cm(10.2), Cm(6))
-        slide1.shapes.add_picture('img/NLR Bulk Karimun.png', Cm(23), Cm(1.5), Cm(10.2), Cm(6))
-        slide1.shapes.add_picture('img/NLR Bulk Derawan.png', Cm(0.5), Cm(9.3), Cm(10.2), Cm(6))
-        slide1.shapes.add_picture('img/NLR Ocean Flow 1.png', Cm(11.7), Cm(9.3), Cm(10.2), Cm(6))
-        slide1.shapes.add_picture('img/NLR Bulk Sumba.png', Cm(23), Cm(9.3), Cm(10.2), Cm(6))
+        slide1.shapes.add_picture('img/NLR_type Bulk Sumatra.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
+        slide1.shapes.add_picture('img/GLR_type Bulk Sumatra.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
 
-        slide1.shapes.add_picture('img/yellow bullet.png', Cm(0.75), Cm(7.5))
-        slide1.shapes.add_picture('img/yellow bullet.png', Cm(12), Cm(7.5))
-        slide1.shapes.add_picture('img/yellow bullet.png', Cm(23), Cm(7.5))
-        slide1.shapes.add_picture('img/yellow bullet.png', Cm(0.75), Cm(15.5))
-        slide1.shapes.add_picture('img/yellow bullet.png', Cm(12), Cm(15.5))
-        slide1.shapes.add_picture('img/yellow bullet.png', Cm(23), Cm(15.5))
+        slide1.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
+        slide1.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
-        # slide2 GLR Berau Coal
-        slide2.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD'
+
+        # slide2 Berau Coal
+        slide2.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK DEWATA'
         slide2.placeholders[17].text = 'Berau Coal' 
-        slide2.shapes.add_picture('img/GLR Bulk Sumatra.png', Cm(0.5), Cm(1.5), Cm(10.2), Cm(6))
-        slide2.shapes.add_picture('img/GLR Bulk Dewata.png', Cm(11.7), Cm(1.5), Cm(10.2), Cm(6))
-        slide2.shapes.add_picture('img/GLR Bulk Karimun.png', Cm(23), Cm(1.5), Cm(10.2), Cm(6))
-        slide2.shapes.add_picture('img/GLR Bulk Derawan.png', Cm(0.5), Cm(9.3), Cm(10.2), Cm(6))
-        slide2.shapes.add_picture('img/GLR Ocean Flow 1.png', Cm(11.7), Cm(9.3), Cm(10.2), Cm(6))
-        slide2.shapes.add_picture('img/GLR Bulk Sumba.png', Cm(23), Cm(9.3), Cm(10.2), Cm(6))
+        slide2.shapes.add_picture('img/NLR_type Bulk Dewata.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
+        slide2.shapes.add_picture('img/GLR_type Bulk Dewata.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
 
-        slide2.shapes.add_picture('img/yellow bullet.png', Cm(0.75), Cm(7.5))
-        slide2.shapes.add_picture('img/yellow bullet.png', Cm(12), Cm(7.5))
-        slide2.shapes.add_picture('img/yellow bullet.png', Cm(23), Cm(7.5))
-        slide2.shapes.add_picture('img/yellow bullet.png', Cm(0.75), Cm(15.5))
-        slide2.shapes.add_picture('img/yellow bullet.png', Cm(12), Cm(15.5))
-        slide2.shapes.add_picture('img/yellow bullet.png', Cm(23), Cm(15.5))
+        slide2.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
+        slide2.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
-        # slide3 Bulk Sumatra
-        slide3.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK SUMATRA'
+        # slide3 Berau Coal
+        slide3.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK KARIMUN'
         slide3.placeholders[17].text = 'Berau Coal'
-        slide3.placeholders[11].text = 'As of ' + str(dat_sumatra['Month'].iloc[-2])
-        slide3.shapes.add_picture('img/Volume Bulk Sumatra.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
-        slide3.shapes.add_picture('img/Fuel Ratio Bulk Sumatra.png', Cm(14), Cm(3),Cm(12), Cm(7))
-        slide3.shapes.add_picture('img/GLR Bulk Sumatra.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
-        slide3.shapes.add_picture('img/NLR Bulk Sumatra.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+        slide3.shapes.add_picture('img/NLR_type Bulk Karimun.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
+        slide3.shapes.add_picture('img/GLR_type Bulk Karimun.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
 
-        # slide4 Bulk Dewata
-        slide4.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK DEWATA'
+        slide3.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
+        slide3.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
+
+        # slide4 Berau Coal
+        slide4.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK DERAWAN'
         slide4.placeholders[17].text = 'Berau Coal'
-        slide4.placeholders[11].text = 'As of ' + str(dat_dewata['Month'].iloc[-2])
-        slide4.shapes.add_picture('img/Volume Bulk Dewata.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
-        slide4.shapes.add_picture('img/Fuel Ratio Bulk Dewata.png', Cm(14), Cm(3),Cm(12), Cm(7))
-        slide4.shapes.add_picture('img/GLR Bulk Dewata.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
-        slide4.shapes.add_picture('img/NLR Bulk Dewata.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+        slide4.shapes.add_picture('img/NLR_type Bulk Derawan.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
+        slide4.shapes.add_picture('img/GLR_type Bulk Derawan.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
 
-        # slide5 Bulk Karimun
-        slide5.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK KARIMUN'
+        slide4.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
+        slide4.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
+
+        # slide5 Berau Coal
+        slide5.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK OCEAN FLOW 1'
         slide5.placeholders[17].text = 'Berau Coal'
-        slide5.placeholders[11].text = 'As of ' + str(dat_karimun['Month'].iloc[-2])
-        slide5.shapes.add_picture('img/Volume Bulk Karimun.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
-        slide5.shapes.add_picture('img/Fuel Ratio Bulk Karimun.png', Cm(14), Cm(3),Cm(12), Cm(7))
-        slide5.shapes.add_picture('img/GLR Bulk Karimun.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
-        slide5.shapes.add_picture('img/NLR Bulk Karimun.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+        slide5.shapes.add_picture('img/NLR_type Ocean Flow 1.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
+        slide5.shapes.add_picture('img/GLR_type Ocean Flow 1.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
 
-        # slide6 Bulk Derawan
-        slide6.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK DERAWAN'
+        slide5.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
+        slide5.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
+
+        # slide6 Berau Coal
+        slide6.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK SUMBA'
         slide6.placeholders[17].text = 'Berau Coal'
-        slide6.placeholders[11].text = 'As of ' + str(dat_derawan['Month'].iloc[-2])
-        slide6.shapes.add_picture('img/Volume Bulk Derawan.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
-        slide6.shapes.add_picture('img/Fuel Ratio Bulk Derawan.png', Cm(14), Cm(3),Cm(12), Cm(7))
-        slide6.shapes.add_picture('img/GLR Bulk Derawan.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
-        slide6.shapes.add_picture('img/NLR Bulk Derawan.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+        slide6.shapes.add_picture('img/NLR_type Bulk Sumba.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
+        slide6.shapes.add_picture('img/GLR_type Bulk Sumba.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
 
-        # slide7 Ocean Flow 1
-        slide7.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nOCEAN FLOW 1'
+        slide6.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
+        slide6.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
+
+        # slide7 Bulk Sumatra
+        slide7.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK SUMATRA'
         slide7.placeholders[17].text = 'Berau Coal'
-        slide7.placeholders[11].text = 'As of ' + str(dat_of1['Month'].iloc[-2])
-        slide7.shapes.add_picture('img/Volume Ocean Flow 1.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
-        slide7.shapes.add_picture('img/Fuel Ratio Ocean Flow 1.png', Cm(14), Cm(3),Cm(12), Cm(7))
-        slide7.shapes.add_picture('img/GLR Ocean Flow 1.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
-        slide7.shapes.add_picture('img/NLR Ocean Flow 1.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+        slide7.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
+        slide7.shapes.add_picture('img/Volume Bulk Sumatra.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
+        slide7.shapes.add_picture('img/Fuel Ratio Bulk Sumatra.png', Cm(14), Cm(3),Cm(12), Cm(7))
+        slide7.shapes.add_picture('img/GLR Bulk Sumatra.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
+        slide7.shapes.add_picture('img/NLR Bulk Sumatra.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
 
-        # slide8 Bulk Sumba
-        slide8.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK SUMBA'
+        # slide8 Bulk Dewata
+        slide8.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK DEWATA'
         slide8.placeholders[17].text = 'Berau Coal'
-        slide8.placeholders[11].text = 'As of ' + str(dat_sumba['Month'].iloc[-2])
-        slide8.shapes.add_picture('img/Volume Bulk Sumba.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
-        slide8.shapes.add_picture('img/Fuel Ratio Bulk Sumba.png', Cm(14), Cm(3),Cm(12), Cm(7))
-        slide8.shapes.add_picture('img/GLR Bulk Sumba.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
-        slide8.shapes.add_picture('img/NLR Bulk Sumba.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+        slide8.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
+        slide8.shapes.add_picture('img/Volume Bulk Dewata.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
+        slide8.shapes.add_picture('img/Fuel Ratio Bulk Dewata.png', Cm(14), Cm(3),Cm(12), Cm(7))
+        slide8.shapes.add_picture('img/GLR Bulk Dewata.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
+        slide8.shapes.add_picture('img/NLR Bulk Dewata.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+
+        # slide9 Bulk Karimun
+        slide9.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK KARIMUN'
+        slide9.placeholders[17].text = 'Berau Coal'
+        slide9.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
+        slide9.shapes.add_picture('img/Volume Bulk Karimun.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
+        slide9.shapes.add_picture('img/Fuel Ratio Bulk Karimun.png', Cm(14), Cm(3),Cm(12), Cm(7))
+        slide9.shapes.add_picture('img/GLR Bulk Karimun.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
+        slide9.shapes.add_picture('img/NLR Bulk Karimun.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+
+        # slide10 Bulk Derawan
+        slide10.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK DERAWAN'
+        slide10.placeholders[17].text = 'Berau Coal'
+        slide10.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
+        slide10.shapes.add_picture('img/Volume Bulk Derawan.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
+        slide10.shapes.add_picture('img/Fuel Ratio Bulk Derawan.png', Cm(14), Cm(3),Cm(12), Cm(7))
+        slide10.shapes.add_picture('img/GLR Bulk Derawan.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
+        slide10.shapes.add_picture('img/NLR Bulk Derawan.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+
+        # slide11 Ocean Flow 1
+        slide11.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nOCEAN FLOW 1'
+        slide11.placeholders[17].text = 'Berau Coal'
+        slide11.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
+        slide11.shapes.add_picture('img/Volume Ocean Flow 1.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
+        slide11.shapes.add_picture('img/Fuel Ratio Ocean Flow 1.png', Cm(14), Cm(3),Cm(12), Cm(7))
+        slide11.shapes.add_picture('img/GLR Ocean Flow 1.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
+        slide11.shapes.add_picture('img/NLR Ocean Flow 1.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+
+        # slide12 Bulk Sumba
+        slide12.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK SUMBA'
+        slide12.placeholders[17].text = 'Berau Coal'
+        slide12.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
+        slide12.shapes.add_picture('img/Volume Bulk Sumba.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
+        slide12.shapes.add_picture('img/Fuel Ratio Bulk Sumba.png', Cm(14), Cm(3),Cm(12), Cm(7))
+        slide12.shapes.add_picture('img/GLR Bulk Sumba.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
+        slide12.shapes.add_picture('img/NLR Bulk Sumba.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
                             
-        # slide9 Bulk Java
-        slide9.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK JAVA'
-        slide9.placeholders[17].text = 'PSS'
-        slide9.placeholders[11].text = 'As of ' + str(dat_java['Month'].iloc[-2])
-        slide9.shapes.add_picture('img/Volume Bulk Java.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
-        slide9.shapes.add_picture('img/Fuel Ratio Bulk Java.png', Cm(14), Cm(3),Cm(12), Cm(7))
-        slide9.shapes.add_picture('img/GLR Bulk Java.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
-        slide9.shapes.add_picture('img/NLR Bulk Java.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+        # slide13 Bulk Java
+        slide13.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK JAVA'
+        slide13.placeholders[17].text = 'PSS'
+        slide13.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
+        slide13.shapes.add_picture('img/Volume Bulk Java.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
+        slide13.shapes.add_picture('img/Fuel Ratio Bulk Java.png', Cm(14), Cm(3),Cm(12), Cm(7))
+        slide13.shapes.add_picture('img/GLR Bulk Java.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
+        slide13.shapes.add_picture('img/NLR Bulk Java.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
                             
-        # slide10 Bulk Natuna
-        slide10.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK NATUNA'
-        slide10.placeholders[17].text = 'BIB'
-        slide10.placeholders[11].text = 'As of ' + str(dat_natuna['Month'].iloc[-2])
-        slide10.shapes.add_picture('img/Volume Bulk Natuna.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
-        slide10.shapes.add_picture('img/Fuel Ratio Bulk Natuna.png', Cm(14), Cm(3),Cm(12), Cm(7))
-        slide10.shapes.add_picture('img/GLR Bulk Natuna.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
-        slide10.shapes.add_picture('img/NLR Bulk Natuna.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+        # slide14 Bulk Natuna
+        slide14.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK NATUNA'
+        slide14.placeholders[17].text = 'BIB'
+        slide14.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
+        slide14.shapes.add_picture('img/Volume Bulk Natuna.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
+        slide14.shapes.add_picture('img/Fuel Ratio Bulk Natuna.png', Cm(14), Cm(3),Cm(12), Cm(7))
+        slide14.shapes.add_picture('img/GLR Bulk Natuna.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
+        slide14.shapes.add_picture('img/NLR Bulk Natuna.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
                             
-        # slide11 Bulk Celebes
-        slide11.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK CELEBES'
-        slide11.placeholders[17].text = 'NORDEN'
-        slide11.placeholders[11].text = 'As of ' + str(dat_celebes['Month'].iloc[-2])
-        slide11.shapes.add_picture('img/Volume Bulk Celebes.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
-        slide11.shapes.add_picture('img/Fuel Ratio Bulk Celebes.png', Cm(14), Cm(3),Cm(12), Cm(7))
-        slide11.shapes.add_picture('img/GLR Bulk Celebes.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
-        slide11.shapes.add_picture('img/NLR Bulk Celebes.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+        # slide15 Bulk Celebes
+        slide15.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK CELEBES'
+        slide15.placeholders[17].text = 'NORDEN'
+        slide15.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
+        slide15.shapes.add_picture('img/Volume Bulk Celebes.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
+        slide15.shapes.add_picture('img/Fuel Ratio Bulk Celebes.png', Cm(14), Cm(3),Cm(12), Cm(7))
+        slide15.shapes.add_picture('img/GLR Bulk Celebes.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
+        slide15.shapes.add_picture('img/NLR Bulk Celebes.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
                             
-        # slide12 Bulk Borneo
-        slide12.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK BORNEO'
-        slide12.placeholders[17].text = 'LDPL-KAMSAR'
-        slide12.placeholders[11].text = 'As of ' + str(dat_borneo['Month'].iloc[-2])
-        slide12.shapes.add_picture('img/Volume Bulk Borneo.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
-        slide12.shapes.add_picture('img/Fuel Ratio Bulk Borneo.png', Cm(14), Cm(3),Cm(12), Cm(7))
-        slide12.shapes.add_picture('img/GLR Bulk Borneo.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
-        slide12.shapes.add_picture('img/NLR Bulk Borneo.png', Cm(14), Cm(10.3), Cm(12), Cm(7))                    
+        # slide16 Bulk Borneo
+        slide16.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK BORNEO'
+        slide16.placeholders[17].text = 'LDPL-KAMSAR'
+        slide16.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
+        slide16.shapes.add_picture('img/Volume Bulk Borneo.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
+        slide16.shapes.add_picture('img/Fuel Ratio Bulk Borneo.png', Cm(14), Cm(3),Cm(12), Cm(7))
+        slide16.shapes.add_picture('img/GLR Bulk Borneo.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
+        slide16.shapes.add_picture('img/NLR Bulk Borneo.png', Cm(14), Cm(10.3), Cm(12), Cm(7))                        
 
 
         # Saving the PowerPoint presentation
@@ -610,6 +680,182 @@ def plot_fr(df, title, baseline):
         opacity=0.8
         )
     
+    labels = list(df['Month'])
+    labels[-1] = "AVG YTD'23"
+
+    fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
+    fig.update_yaxes(showgrid=False, visible=False)
+    
+    return(fig)
+
+#-- 5. NLR Type Function
+def plot_nlr_type(df, title):
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['NLR Single'].tail(4),
+        name='Single',
+        text=df['NLR Single'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#6A9C89'))
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['NLR Blending'].tail(4),
+        name='Blending',
+        text=df['NLR Blending'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#C1D8C3'))
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['NLR Gear'].tail(4),
+        name='Gear',
+        text=df['NLR Gear'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#F5E8B7'))
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['NLR Barge'].tail(4),
+        name='Barge',
+        text=df['NLR Barge'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#CD5C08'))
+    
+    fig.update_layout({
+        'height':1000,'width':1700,
+        'margin' : {'t':200, 'b':3, 'l':3, 'r':3},
+        "autosize": True,
+        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+        'paper_bgcolor': 'rgba(0, 0, 0, 0)',},
+        title={
+            'text': title,
+            'y':0.89,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {'size':75}},
+        legend={
+            'yanchor':"bottom",
+            'y':-0.2,
+            'xanchor':"center",
+            'x':0.5,
+            'itemsizing': 'constant',
+            'font':{'size':30},
+            'orientation':'h'},
+        xaxis = dict(tickfont = dict(size=40)),
+        yaxis = dict(tickfont = dict(size=40)),
+        yaxis_range=[0,(df['NLR Plan'].iloc[-1])*1.65],
+        bargroupgap=0.05,
+        bargap=0.15,
+        hovermode="x",
+        shapes=[go.layout.Shape(type='rect', 
+                                xref='paper',
+                                yref='paper',
+                                x0=0,
+                                y0=-0.2,
+                                x1=1,
+                                y1=1.25,
+                                line={'width': 2, 'color': 'black'})])
+
+    labels = list(df['Month'])
+    labels[-1] = "AVG YTD'23"
+
+    fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
+    fig.update_yaxes(showgrid=False, visible=False)
+    
+    return(fig)
+
+#-- 6. GLR Type Function
+def plot_glr_type(df, title):
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['GLR Single'].tail(4),
+        name='Single',
+        text=df['GLR Single'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#6A9C89'))
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['GLR Blending'].tail(4),
+        name='Blending',
+        text=df['GLR Blending'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#C1D8C3'))
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['GLR Gear'].tail(4),
+        name='Gear',
+        text=df['GLR Gear'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#F5E8B7'))
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['GLR Barge'].tail(4),
+        name='Barge',
+        text=df['GLR Barge'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#CD5C08'))
+    
+    fig.update_layout({
+        'height':1000,'width':1700,
+        'margin' : {'t':200, 'b':3, 'l':3, 'r':3},
+        "autosize": True,
+        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+        'paper_bgcolor': 'rgba(0, 0, 0, 0)',},
+        title={
+            'text': title,
+            'y':0.89,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {'size':75}},
+        legend={
+            'yanchor':"bottom",
+            'y':-0.2,
+            'xanchor':"center",
+            'x':0.5,
+            'itemsizing': 'constant',
+            'font':{'size':30},
+            'orientation':'h'},
+        xaxis = dict(tickfont = dict(size=40)),
+        yaxis = dict(tickfont = dict(size=40)),
+        yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.65],
+        bargroupgap=0.05,
+        bargap=0.15,
+        hovermode="x",
+        shapes=[go.layout.Shape(type='rect', 
+                                xref='paper',
+                                yref='paper',
+                                x0=0,
+                                y0=-0.2,
+                                x1=1,
+                                y1=1.25,
+                                line={'width': 2, 'color': 'black'})])
+
     labels = list(df['Month'])
     labels[-1] = "AVG YTD'23"
 
