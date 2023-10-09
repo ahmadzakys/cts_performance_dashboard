@@ -37,7 +37,7 @@ navbar = dbc.NavbarSimple(
 
 ## -----LAYOUT-----
 app.layout = dbc.Container([
-    dcc.Interval(id="timer", interval=1000*120, n_intervals=0),
+    dcc.Interval(id="timer", interval=1000*86400, n_intervals=0),
     dcc.Store(id="store", data={}),
     navbar,
 
