@@ -228,6 +228,9 @@ def update_charts(n_clicks, data):
         slide4 = prs.slides.add_slide(prs.slide_layouts[1])
         slide5 = prs.slides.add_slide(prs.slide_layouts[1])
         slide6 = prs.slides.add_slide(prs.slide_layouts[1])
+        slide17 = prs.slides.add_slide(prs.slide_layouts[1])
+        slide18 = prs.slides.add_slide(prs.slide_layouts[1])
+
 
         slide7 = prs.slides.add_slide(prs.slide_layouts[3])
         slide8 = prs.slides.add_slide(prs.slide_layouts[3])
@@ -301,6 +304,24 @@ def update_charts(n_clicks, data):
 
         slide6.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
         slide6.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
+
+        # slide17 Berau Coal
+        slide17.placeholders[16].text = 'PSS OPERATIONAL DASHBOARD \nBULK JAVA'
+        slide17.placeholders[17].text = 'PSS'
+        slide17.shapes.add_picture('img/NLR_type Bulk Java.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
+        slide17.shapes.add_picture('img/GLR_type Bulk Java.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
+
+        slide17.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
+        slide17.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
+
+        # slide18 Berau Coal
+        slide18.placeholders[16].text = 'BIB OPERATIONAL DASHBOARD \nBULK NATUNA'
+        slide18.placeholders[17].text = 'BIB'
+        slide18.shapes.add_picture('img/NLR_type Bulk Natuna.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
+        slide18.shapes.add_picture('img/GLR_type Bulk Natuna.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
+
+        slide18.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
+        slide18.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
         # slide7 Bulk Sumatra
         slide7.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK SUMATRA'
