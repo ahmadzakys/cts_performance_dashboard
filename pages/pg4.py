@@ -22,22 +22,9 @@ layout = html.Div([
 
                 dbc.Row([
                     dbc.Col([
-                        dcc.Graph(id='fr_borneo'),
-                    ], width=4),
-                        
-                    dbc.Col([
-                        dcc.Graph(id='fr_celebes'),
-                    ], width=4),
-
-                    dbc.Col([
                         dcc.Graph(id='fr_sumatra'),
-                    ], width=4)
-                ]),
+                    ], width=4),
 
-                html.Br(),
-
-                ## --ROW2--
-                dbc.Row([
                     dbc.Col([
                         dcc.Graph(id='fr_java'),
                     ], width=4),
@@ -45,16 +32,16 @@ layout = html.Div([
                     dbc.Col([
                         dcc.Graph(id='fr_dewata'),
                     ], width=4),
-
-                    dbc.Col([
-                        dcc.Graph(id='fr_karimun'),
-                    ], width=4)
                 ]),
 
                 html.Br(),
 
-                ## --ROW3--
+                ## --ROW2--
                 dbc.Row([
+                    dbc.Col([
+                        dcc.Graph(id='fr_karimun'),
+                    ], width=4),
+
                     dbc.Col([
                         dcc.Graph(id='fr_of1'),
                     ], width=4),
@@ -62,10 +49,24 @@ layout = html.Div([
                     dbc.Col([
                         dcc.Graph(id='fr_natuna'),
                     ], width=4),
+                ]),
 
+                html.Br(),
+
+                ## --ROW3--
+                dbc.Row([
                     dbc.Col([
                         dcc.Graph(id='fr_sumba'),
-                    ], width=4)
+                    ], width=4),
+
+                    dbc.Col([
+                        dcc.Graph(id='fr_derawan'),
+                    ], width=4),
+
+                    dbc.Col([
+                        dcc.Graph(id='fr_borneo'),
+                    ], width=4),
+
                 ]),
 
                 html.Br(),
@@ -73,8 +74,9 @@ layout = html.Div([
                 ## --ROW4--
                 dbc.Row([
                     dbc.Col([
-                        dcc.Graph(id='fr_derawan'),
+                        dcc.Graph(id='fr_celebes'),
                     ], width=4),
+
                 ]),
 
     html.Br(),

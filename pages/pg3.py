@@ -23,22 +23,9 @@ layout = html.Div([
 
                 dbc.Row([
                     dbc.Col([
-                        dcc.Graph(id='glr_borneo'),
-                    ], width=4),
-                        
-                    dbc.Col([
-                        dcc.Graph(id='glr_celebes'),
-                    ], width=4),
-
-                    dbc.Col([
                         dcc.Graph(id='glr_sumatra'),
-                    ], width=4)
-                ]),
+                    ], width=4),
 
-                html.Br(),
-
-                ## --ROW2--
-                dbc.Row([
                     dbc.Col([
                         dcc.Graph(id='glr_java'),
                     ], width=4),
@@ -46,16 +33,16 @@ layout = html.Div([
                     dbc.Col([
                         dcc.Graph(id='glr_dewata'),
                     ], width=4),
-
-                    dbc.Col([
-                        dcc.Graph(id='glr_karimun'),
-                    ], width=4)
                 ]),
 
                 html.Br(),
 
-                ## --ROW3--
+                ## --ROW2--
                 dbc.Row([
+                    dbc.Col([
+                        dcc.Graph(id='glr_karimun'),
+                    ], width=4),
+
                     dbc.Col([
                         dcc.Graph(id='glr_of1'),
                     ], width=4),
@@ -63,10 +50,24 @@ layout = html.Div([
                     dbc.Col([
                         dcc.Graph(id='glr_natuna'),
                     ], width=4),
+                ]),
 
+                html.Br(),
+
+                ## --ROW3--
+                dbc.Row([
                     dbc.Col([
                         dcc.Graph(id='glr_sumba'),
-                    ], width=4)
+                    ], width=4),
+
+                    dbc.Col([
+                        dcc.Graph(id='glr_derawan'),
+                    ], width=4),
+
+                    dbc.Col([
+                        dcc.Graph(id='glr_borneo'),
+                    ], width=4),
+
                 ]),
 
                 html.Br(),
@@ -74,8 +75,9 @@ layout = html.Div([
                 ## --ROW4--
                 dbc.Row([
                     dbc.Col([
-                        dcc.Graph(id='glr_derawan'),
+                        dcc.Graph(id='glr_celebes'),
                     ], width=4),
+
                 ]),
 
     html.Br(),
@@ -137,22 +139,44 @@ def plot_glr(df, title):
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
-        y=df['GLR Plan'].tail(4),
-        name='Plan',
-        text=df['GLR Plan'].tail(4),
+        y=df['GLR Single'].tail(4),
+        name='Single',
+        text=df['GLR Single'].tail(4),
+        textfont_size=48,
         textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='#5b9bd5'))
+        marker_color='#ffc000'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
-        y=df['GLR Actual'].tail(4),
-        name='Actual',
-        text=df['GLR Actual'].tail(4),
+        y=df['GLR Blending'].tail(4),
+        name='Blending',
+        text=df['GLR Blending'].tail(4),
+        textfont_size=48,
         textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='lightsalmon'))
+        marker_color='#00b1f1'))
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['GLR Gear'].tail(4),
+        name='Gear',
+        text=df['GLR Gear'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#0071c1'))
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['GLR Barge'].tail(4),
+        name='Barge',
+        text=df['GLR Barge'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#92d14f'))
     fig.update_layout({
         'margin' : {'t':3, 'b':3, 'l':15, 'r':15},
         'plot_bgcolor': 'rgba(0, 0, 0, 0)',
@@ -167,10 +191,11 @@ def plot_glr(df, title):
             'yanchor':"bottom",
             'y':-0.25,
             'xanchor':"center",
-            'x':0.5},
+            'x':0.5,
+            'orientation':'h'},
         yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.8],
-        bargroupgap=0.165,
-        bargap=0.25,
+        bargroupgap=0.05,
+        bargap=0.15,
         hovermode="x")
 
     labels = list(df['Month'])

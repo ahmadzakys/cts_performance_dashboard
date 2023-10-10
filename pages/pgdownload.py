@@ -721,7 +721,7 @@ def plot_nlr_type(df, title):
         textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='#6A9C89'))
+        marker_color='#ffc000'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['NLR Blending'].tail(4),
@@ -731,7 +731,7 @@ def plot_nlr_type(df, title):
         textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='#C1D8C3'))
+        marker_color='#00b1f1'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['NLR Gear'].tail(4),
@@ -741,7 +741,7 @@ def plot_nlr_type(df, title):
         textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='#F5E8B7'))
+        marker_color='#0071c1'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['NLR Barge'].tail(4),
@@ -751,7 +751,7 @@ def plot_nlr_type(df, title):
         textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='#CD5C08'))
+        marker_color='#92d14f'))
     
     fig.update_layout({
         'height':1000,'width':1700,
@@ -809,7 +809,7 @@ def plot_glr_type(df, title):
         textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='#6A9C89'))
+        marker_color='#ffc000'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['GLR Blending'].tail(4),
@@ -819,7 +819,7 @@ def plot_glr_type(df, title):
         textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='#C1D8C3'))
+        marker_color='#00b1f1'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['GLR Gear'].tail(4),
@@ -829,7 +829,7 @@ def plot_glr_type(df, title):
         textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='#F5E8B7'))
+        marker_color='#0071c1'))
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
         y=df['GLR Barge'].tail(4),
@@ -839,7 +839,7 @@ def plot_glr_type(df, title):
         textposition = 'outside',
         hovertemplate='%{y:y}',
         textangle=0,
-        marker_color='#CD5C08'))
+        marker_color='#92d14f'))
     
     fig.update_layout({
         'height':1000,'width':1700,
