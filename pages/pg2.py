@@ -118,23 +118,23 @@ def update_charts(data):
     dat_sumba = pd.DataFrame(data['Bulk Sumba'])
     dat_derawan = pd.DataFrame(data['Bulk Derawan'])
     
-    ##-----Plot Volume
-    nlr_borneo = plot_nlr(dat_borneo, "NLR Bulk Borneo")
-    nlr_celebes = plot_nlr(dat_celebes, "NLR Bulk Celebes")
-    nlr_sumatra = plot_nlr(dat_sumatra, "NLR Bulk Sumatra")
-    nlr_java = plot_nlr(dat_java, 'NLR Bulk Java')
-    nlr_dewata = plot_nlr(dat_dewata, 'NLR Bulk Dewata')
-    nlr_karimun = plot_nlr(dat_karimun, 'NLR Bulk Karimun')
-    nlr_of1 = plot_nlr(dat_of1, 'NLR Ocean Flow 1')
-    nlr_natuna = plot_nlr(dat_natuna, 'NLR Bulk Natuna')
-    nlr_sumba = plot_nlr(dat_sumba, 'NLR Bulk Sumba')
-    nlr_derawan = plot_nlr(dat_derawan, 'NLR Bulk Derawan')
+    ##-----Plot NLR
+    nlr_sumatra = plot_nlr(dat_sumatra, "NLR Bulk Sumatra", 52000)
+    nlr_dewata = plot_nlr(dat_dewata, "NLR Bulk Dewata", 36815)
+    nlr_karimun = plot_nlr(dat_karimun, "NLR Bulk Karimun", 46000)
+    nlr_derawan = plot_nlr(dat_derawan, "NLR Bulk Derawan", 46000)
+    nlr_of1 = plot_nlr(dat_of1, "NLR Ocean Flow 1", 36000)
+    nlr_sumba = plot_nlr(dat_sumba, "NLR Bulk Sumba", 28000)
+    nlr_java = plot_nlr(dat_java, "NLR Bulk Java", 46000)
+    nlr_natuna = plot_nlr(dat_natuna, "NLR Bulk Natuna", 18400)
+    nlr_celebes = plot_nlr(dat_celebes, "NLR Bulk Celebes", 25000)
+    nlr_borneo = plot_nlr(dat_borneo, "NLR Bulk Borneo", 25000)
 
     return nlr_borneo, nlr_celebes, nlr_sumatra, nlr_java, nlr_dewata, nlr_karimun, nlr_of1, nlr_natuna, nlr_sumba, nlr_derawan
 
 ##-----Function
 #-- 2. NLR Function
-def plot_nlr(df, title):
+def plot_nlr(df, title, baseline):
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
@@ -196,6 +196,27 @@ def plot_nlr(df, title):
         bargroupgap=0.05,
         bargap=0.15,
         hovermode="x")
+    
+    fig.add_hline(y=baseline, line_width=1, line_dash="dash", line_color="gray")
+    fig.add_annotation(
+        x=3.75,
+        y=baseline*1.07,
+        xref="x",
+        yref="y",
+        text=str(baseline) + ' MT/Day',
+        showarrow=False,
+        font=dict(
+            family="Verdana",
+            size=6,
+            color="#ffffff"
+            ),
+        align="center",
+        bordercolor="#c7c7c7",
+        borderwidth=2,
+        borderpad=4,
+        bgcolor="#5b9bd5",
+        opacity=0.8
+        )
 
     labels = list(df['Month'])
     labels[-1] = "AVG YTD'23"

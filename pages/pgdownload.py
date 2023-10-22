@@ -123,16 +123,16 @@ def update_charts(n_clicks, data):
     fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes", 0.24)
     fr_borneo = plot_fr(dat_borneo, "Fuel Ratio Bulk Borneo", 0.24)
 
-    nlr_type_sumatra = plot_nlr_type(dat_sumatra, "NLR Bulk Sumatra")
-    nlr_type_dewata = plot_nlr_type(dat_dewata, "NLR Bulk Dewata")
-    nlr_type_karimun = plot_nlr_type(dat_karimun, "NLR Bulk Karimun")
-    nlr_type_derawan = plot_nlr_type(dat_derawan, "NLR Bulk Derawan")
-    nlr_type_of1 = plot_nlr_type(dat_of1, "NLR Ocean Flow 1")
-    nlr_type_sumba = plot_nlr_type(dat_sumba, "NLR Bulk Sumba")
-    nlr_type_java = plot_nlr_type(dat_java, "NLR Bulk Java")
-    nlr_type_natuna = plot_nlr_type(dat_natuna, "NLR Bulk Natuna")
-    nlr_type_celebes = plot_nlr_type(dat_celebes, "NLR Bulk Celebes")
-    nlr_type_borneo = plot_nlr_type(dat_borneo, "NLR Bulk Borneo")
+    nlr_type_sumatra = plot_nlr_type(dat_sumatra, "NLR Bulk Sumatra", 52000)
+    nlr_type_dewata = plot_nlr_type(dat_dewata, "NLR Bulk Dewata", 36815)
+    nlr_type_karimun = plot_nlr_type(dat_karimun, "NLR Bulk Karimun", 46000)
+    nlr_type_derawan = plot_nlr_type(dat_derawan, "NLR Bulk Derawan", 46000)
+    nlr_type_of1 = plot_nlr_type(dat_of1, "NLR Ocean Flow 1", 36000)
+    nlr_type_sumba = plot_nlr_type(dat_sumba, "NLR Bulk Sumba", 28000)
+    nlr_type_java = plot_nlr_type(dat_java, "NLR Bulk Java", 46000)
+    nlr_type_natuna = plot_nlr_type(dat_natuna, "NLR Bulk Natuna", 18400)
+    nlr_type_celebes = plot_nlr_type(dat_celebes, "NLR Bulk Celebes", 25000)
+    nlr_type_borneo = plot_nlr_type(dat_borneo, "NLR Bulk Borneo", 25000)
 
     glr_type_sumatra = plot_glr_type(dat_sumatra, "GLR Bulk Sumatra")
     glr_type_dewata = plot_glr_type(dat_dewata, "GLR Bulk Dewata")
@@ -710,7 +710,7 @@ def plot_fr(df, title, baseline):
     return(fig)
 
 #-- 5. NLR Type Function
-def plot_nlr_type(df, title):
+def plot_nlr_type(df, title, baseline):
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
@@ -788,6 +788,27 @@ def plot_nlr_type(df, title):
                                 x1=1,
                                 y1=1.25,
                                 line={'width': 2, 'color': 'black'})])
+    
+    fig.add_hline(y=baseline, line_width=1, line_dash="dash", line_color="gray")
+    fig.add_annotation(
+        x=3.75,
+        y=baseline*1.07,
+        xref="x",
+        yref="y",
+        text=str(baseline) + ' MT/Day',
+        showarrow=False,
+        font=dict(
+            family="Verdana",
+            size=27,
+            color="#ffffff"
+            ),
+        align="center",
+        bordercolor="#c7c7c7",
+        borderwidth=2,
+        borderpad=4,
+        bgcolor="#5b9bd5",
+        opacity=0.8
+        )
 
     labels = list(df['Month'])
     labels[-1] = "AVG YTD'23"
