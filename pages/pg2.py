@@ -197,7 +197,7 @@ def plot_nlr(df, title, baseline):
         bargap=0.15,
         hovermode="x")
     
-    fig.add_hline(y=baseline, line_width=1, line_dash="dash", line_color="gray")
+    fig.add_hline(y=baseline, line_width=1, line_dash="dash", line_color="red")
     fig.add_annotation(
         x=3.75,
         y=baseline*1.07,
@@ -211,10 +211,10 @@ def plot_nlr(df, title, baseline):
             color="#ffffff"
             ),
         align="center",
-        bordercolor="#c7c7c7",
-        borderwidth=2,
-        borderpad=4,
-        bgcolor="#5b9bd5",
+        # bordercolor="#c7c7c7",
+        borderwidth=1,
+        borderpad=2,
+        bgcolor="red",
         opacity=0.8
         )
 
