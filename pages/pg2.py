@@ -219,7 +219,7 @@ def plot_nlr(df, title, baseline):
         )
 
     labels = list(df['Month'])
-    labels[-1] = "AVG YTD'23"
+    labels[-1] = "AVG YTD'24"
 
     fig.update_xaxes(linecolor='#e1e6e6', tickvals=np.arange(4), ticktext=labels[-4:])
     fig.update_yaxes(showgrid=False, visible=False)
