@@ -8,6 +8,7 @@ from dash.dependencies import Input, Output
 import pandas as pd
 import numpy as np
 import gspread
+import datetime
 
 #####-----Create a Dash app instance-----#####
 app = dash.Dash(
@@ -74,20 +75,21 @@ def preprocessing(df):
     for i in range(len(Month)) :
         month_name.append(Month[i].strftime('%b'))
 
-    string = '-23'
-    month_name = [x + string for x in month_name]
     month_name[-1] = dat['Month'].iloc[-1][0:2] + '-' + month_name[-1]
+    dat['Date'] = dat['Month']
+    dat['Date'] = dat['Date'].astype('datetime64')
+    dat['Year'] = dat['Date'].dt.year
     dat['Month'] = month_name
     
     #Aggregate data
-    total = dat[['Volume Plan', 'Volume Actual']].apply(np.sum)
-    avg = round(dat[['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net',
-                     'NLR Single', 'NLR Blending', 'NLR Gear', 'NLR Barge',  
-                     'GLR Single', 'GLR Blending', 'GLR Gear', 'GLR Barge']].apply(np.nanmean),2)
-    per_v = round(total['Volume Actual']/total['Volume Plan']*100)
-    per_nlr = round(avg['NLR Actual']/avg['NLR Plan']*100)
-    per_glr = round(avg['GLR Actual']/avg['GLR Plan']*100)
-    per_fr = round(avg['Fuel Ratio Net']/avg['Fuel Ratio Gross']*100)
+    total = dat[dat['Year'] == datetime.date.today().year][['Volume Plan', 'Volume Actual']].apply(np.sum)
+    avg = round(dat[dat['Year'] == datetime.date.today().year][['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net',
+                                                                'NLR Single', 'NLR Blending', 'NLR Gear', 'NLR Barge',  
+                                                                'GLR Single', 'GLR Blending', 'GLR Gear', 'GLR Barge']].apply(np.nanmean),2)
+    per_v = total['Volume Actual']/total['Volume Plan']*100
+    per_nlr = avg['NLR Actual']/avg['NLR Plan']*100
+    per_glr = avg['GLR Actual']/avg['GLR Plan']*100
+    per_fr = avg['Fuel Ratio Net']/avg['Fuel Ratio Gross']*100
     
     loadrate = ['NLR Single', 'NLR Blending', 'NLR Gear', 'NLR Barge',  
                 'GLR Single', 'GLR Blending', 'GLR Gear', 'GLR Barge']
@@ -101,7 +103,8 @@ def preprocessing(df):
                 round(avg['GLR Plan']), round(avg['GLR Actual']), per_glr,
                 avg['Fuel Ratio Gross'], avg['Fuel Ratio Net'], per_fr,
                 round(avg['NLR Single']), round(avg['NLR Blending']), round(avg['NLR Gear']), round(avg['NLR Barge']),
-                round(avg['GLR Single']), round(avg['GLR Blending']), round(avg['GLR Gear']), round(avg['GLR Barge'])])
+                round(avg['GLR Single']), round(avg['GLR Blending']), round(avg['GLR Gear']), round(avg['GLR Barge']),
+                0, 0])
     
     for i in range(len(ytd)):
         if ytd[i]==0:
@@ -186,4 +189,4 @@ def update_data(n):
 
 ######-----Start the Dash server-----#####
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(debug=True)
