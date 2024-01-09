@@ -73,7 +73,7 @@ def preprocessing(df):
     Month = pd.to_datetime(df['Month'], dayfirst=True)
     month_name = []
     for i in range(len(Month)) :
-        month_name.append(Month[i].strftime('%b'))
+        month_name.append(Month[i].strftime('%b-%y'))
 
     month_name[-1] = dat['Month'].iloc[-1][0:2] + '-' + month_name[-1]
     dat['Date'] = dat['Month']
