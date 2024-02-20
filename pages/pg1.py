@@ -171,7 +171,7 @@ def plot_volume(df, title):
             'y':-0.25,
             'xanchor':"center",
             'x':0.5},
-        yaxis_range=[0,(df['Volume Actual'].iloc[-3])*1.8],
+        yaxis_range=[0,(df['Volume Plan'].iloc[-1])*1.8],
         bargroupgap=0.165,
         bargap=0.25,
         hovermode="x")
