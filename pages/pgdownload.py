@@ -469,7 +469,7 @@ def plot_volume(df, title):
             'font':{'size':40}},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['Volume Plan'].iloc[-1])*1.65],
+        yaxis_range=[0,(df['Volume Plan'].iloc[-1])*1.8],
         bargroupgap=0.165,
         bargap=0.25,
         hovermode="x",
