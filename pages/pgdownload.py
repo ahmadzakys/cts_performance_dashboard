@@ -131,7 +131,7 @@ def update_charts(n_clicks, data):
     nlr_type_sumba = plot_nlr_type(dat_sumba, "NLR Bulk Sumba", 28000)
     nlr_type_java = plot_nlr_type(dat_java, "NLR Bulk Java", 46000)
     nlr_type_natuna = plot_nlr_type(dat_natuna, "NLR Bulk Natuna", 18400)
-    nlr_type_celebes = plot_nlr_type(dat_celebes, "NLR Bulk Celebes", 25000)
+    nlr_type_celebes = plot_nlr_type(dat_celebes, "NLR Bulk Celebes", 46000)
     nlr_type_borneo = plot_nlr_type(dat_borneo, "NLR Bulk Borneo", 25000)
 
     glr_type_sumatra = plot_glr_type(dat_sumatra, "GLR Bulk Sumatra")
@@ -228,6 +228,7 @@ def update_charts(n_clicks, data):
         slide4 = prs.slides.add_slide(prs.slide_layouts[1])
         slide5 = prs.slides.add_slide(prs.slide_layouts[1])
         slide6 = prs.slides.add_slide(prs.slide_layouts[1])
+        slide19 = prs.slides.add_slide(prs.slide_layouts[1])
         slide17 = prs.slides.add_slide(prs.slide_layouts[1])
         slide18 = prs.slides.add_slide(prs.slide_layouts[1])
 
@@ -304,6 +305,15 @@ def update_charts(n_clicks, data):
 
         slide6.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
         slide6.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
+
+        # slide19 Berau Coal
+        slide19.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK CELEBES'
+        slide19.placeholders[17].text = 'Berau Coal'
+        slide19.shapes.add_picture('img/NLR_type Bulk Celebes.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
+        slide19.shapes.add_picture('img/GLR_type Bulk Celebes.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
+
+        slide19.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
+        slide19.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
         # slide17 Berau Coal
         slide17.placeholders[16].text = 'PSS OPERATIONAL DASHBOARD \nBULK JAVA'

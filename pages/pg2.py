@@ -127,7 +127,7 @@ def update_charts(data):
     nlr_sumba = plot_nlr(dat_sumba, "NLR Bulk Sumba", 28000)
     nlr_java = plot_nlr(dat_java, "NLR Bulk Java", 46000)
     nlr_natuna = plot_nlr(dat_natuna, "NLR Bulk Natuna", 18400)
-    nlr_celebes = plot_nlr(dat_celebes, "NLR Bulk Celebes", 25000)
+    nlr_celebes = plot_nlr(dat_celebes, "NLR Bulk Celebes", 46000)
     nlr_borneo = plot_nlr(dat_borneo, "NLR Bulk Borneo", 25000)
 
     return nlr_borneo, nlr_celebes, nlr_sumatra, nlr_java, nlr_dewata, nlr_karimun, nlr_of1, nlr_natuna, nlr_sumba, nlr_derawan
