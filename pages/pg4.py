@@ -127,7 +127,7 @@ def update_charts(data):
     fr_sumba = plot_fr(dat_sumba, "Fuel Ratio Bulk Sumba", 0.32)
     fr_java = plot_fr(dat_java, "Fuel Ratio Bulk Java", 0.27)
     fr_natuna = plot_fr(dat_natuna, "Fuel Ratio Bulk Natuna", 0.40)
-    fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes", 0.24)
+    fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes", 0.37)
     fr_borneo = plot_fr(dat_borneo, "Fuel Ratio Bulk Borneo", 0.24)
 
 
