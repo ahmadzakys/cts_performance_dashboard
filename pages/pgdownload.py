@@ -252,7 +252,7 @@ def update_charts(n_clicks, data):
 
 
         # slide1 Berau Coal
-        slide1.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK SUMATRA'
+        slide1.placeholders[16].text = 'BULK SUMATRA \nBERAU COAL OPERATIONAL DASHBOARD'
         slide1.placeholders[17].text = 'Berau Coal' 
         slide1.shapes.add_picture('img/NLR_type Bulk Sumatra.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
         slide1.shapes.add_picture('img/GLR_type Bulk Sumatra.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
@@ -262,7 +262,7 @@ def update_charts(n_clicks, data):
 
 
         # slide2 Berau Coal
-        slide2.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK DEWATA'
+        slide2.placeholders[16].text = 'BULK DEWATA \nBERAU COAL OPERATIONAL DASHBOARD'
         slide2.placeholders[17].text = 'Berau Coal' 
         slide2.shapes.add_picture('img/NLR_type Bulk Dewata.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
         slide2.shapes.add_picture('img/GLR_type Bulk Dewata.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
@@ -271,7 +271,7 @@ def update_charts(n_clicks, data):
         slide2.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
         # slide3 Berau Coal
-        slide3.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK KARIMUN'
+        slide3.placeholders[16].text = 'BULK KARIMUN \nBERAU COAL OPERATIONAL DASHBOARD'
         slide3.placeholders[17].text = 'Berau Coal'
         slide3.shapes.add_picture('img/NLR_type Bulk Karimun.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
         slide3.shapes.add_picture('img/GLR_type Bulk Karimun.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
@@ -280,7 +280,7 @@ def update_charts(n_clicks, data):
         slide3.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
         # slide4 Berau Coal
-        slide4.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK DERAWAN'
+        slide4.placeholders[16].text = 'BULK DERAWAN \nBERAU COAL OPERATIONAL DASHBOARD'
         slide4.placeholders[17].text = 'Berau Coal'
         slide4.shapes.add_picture('img/NLR_type Bulk Derawan.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
         slide4.shapes.add_picture('img/GLR_type Bulk Derawan.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
@@ -289,7 +289,7 @@ def update_charts(n_clicks, data):
         slide4.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
         # slide5 Berau Coal
-        slide5.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK OCEAN FLOW 1'
+        slide5.placeholders[16].text = 'BULK OCEAN FLOW 1 \nBERAU COAL OPERATIONAL DASHBOARD'
         slide5.placeholders[17].text = 'Berau Coal'
         slide5.shapes.add_picture('img/NLR_type Ocean Flow 1.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
         slide5.shapes.add_picture('img/GLR_type Ocean Flow 1.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
@@ -298,7 +298,7 @@ def update_charts(n_clicks, data):
         slide5.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
         # slide6 Berau Coal
-        slide6.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK SUMBA'
+        slide6.placeholders[16].text = 'BULK SUMBA \nBERAU COAL OPERATIONAL DASHBOARD'
         slide6.placeholders[17].text = 'Berau Coal'
         slide6.shapes.add_picture('img/NLR_type Bulk Sumba.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
         slide6.shapes.add_picture('img/GLR_type Bulk Sumba.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
@@ -307,7 +307,7 @@ def update_charts(n_clicks, data):
         slide6.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
         # slide19 Berau Coal
-        slide19.placeholders[16].text = 'BERAU COAL OPERATIONAL DASHBOARD \nBULK CELEBES'
+        slide19.placeholders[16].text = 'BULK CELEBES \nBERAU COAL OPERATIONAL DASHBOARD'
         slide19.placeholders[17].text = 'Berau Coal'
         slide19.shapes.add_picture('img/NLR_type Bulk Celebes.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
         slide19.shapes.add_picture('img/GLR_type Bulk Celebes.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
@@ -316,7 +316,7 @@ def update_charts(n_clicks, data):
         slide19.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
         # slide17 Berau Coal
-        slide17.placeholders[16].text = 'PSS OPERATIONAL DASHBOARD \nBULK JAVA'
+        slide17.placeholders[16].text = 'BULK JAVA \nPSS OPERATIONAL DASHBOARD'
         slide17.placeholders[17].text = 'PSS'
         slide17.shapes.add_picture('img/NLR_type Bulk Java.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
         slide17.shapes.add_picture('img/GLR_type Bulk Java.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
@@ -325,7 +325,7 @@ def update_charts(n_clicks, data):
         slide17.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
         # slide18 Berau Coal
-        slide18.placeholders[16].text = 'BIB OPERATIONAL DASHBOARD \nBULK NATUNA'
+        slide18.placeholders[16].text = 'BULK NATUNA \nBIB OPERATIONAL DASHBOARD'
         slide18.placeholders[17].text = 'BIB'
         slide18.shapes.add_picture('img/NLR_type Bulk Natuna.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
         slide18.shapes.add_picture('img/GLR_type Bulk Natuna.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
@@ -334,7 +334,7 @@ def update_charts(n_clicks, data):
         slide18.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
         # slide7 Bulk Sumatra
-        slide7.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK SUMATRA'
+        slide7.placeholders[10].text = 'BULK SUMATRA \nOPS PERFORMANCE DASHBOARD'
         slide7.placeholders[17].text = 'Berau Coal'
         slide7.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
         slide7.shapes.add_picture('img/Volume Bulk Sumatra.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
@@ -343,7 +343,7 @@ def update_charts(n_clicks, data):
         slide7.shapes.add_picture('img/NLR Bulk Sumatra.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
 
         # slide8 Bulk Dewata
-        slide8.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK DEWATA'
+        slide8.placeholders[10].text = 'BULK DEWATA \nOPS PERFORMANCE DASHBOARD'
         slide8.placeholders[17].text = 'Berau Coal'
         slide8.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
         slide8.shapes.add_picture('img/Volume Bulk Dewata.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
@@ -352,7 +352,7 @@ def update_charts(n_clicks, data):
         slide8.shapes.add_picture('img/NLR Bulk Dewata.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
 
         # slide9 Bulk Karimun
-        slide9.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK KARIMUN'
+        slide9.placeholders[10].text = 'BULK KARIMUN \nOPS PERFORMANCE DASHBOARD'
         slide9.placeholders[17].text = 'Berau Coal'
         slide9.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
         slide9.shapes.add_picture('img/Volume Bulk Karimun.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
@@ -361,7 +361,7 @@ def update_charts(n_clicks, data):
         slide9.shapes.add_picture('img/NLR Bulk Karimun.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
 
         # slide10 Bulk Derawan
-        slide10.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK DERAWAN'
+        slide10.placeholders[10].text = 'BULK DERAWAN \nOPS PERFORMANCE DASHBOARD'
         slide10.placeholders[17].text = 'Berau Coal'
         slide10.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
         slide10.shapes.add_picture('img/Volume Bulk Derawan.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
@@ -370,7 +370,7 @@ def update_charts(n_clicks, data):
         slide10.shapes.add_picture('img/NLR Bulk Derawan.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
 
         # slide11 Ocean Flow 1
-        slide11.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nOCEAN FLOW 1'
+        slide11.placeholders[10].text = 'OCEAN FLOW 1 \nOPS PERFORMANCE DASHBOARD'
         slide11.placeholders[17].text = 'Berau Coal'
         slide11.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
         slide11.shapes.add_picture('img/Volume Ocean Flow 1.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
@@ -379,7 +379,7 @@ def update_charts(n_clicks, data):
         slide11.shapes.add_picture('img/NLR Ocean Flow 1.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
 
         # slide12 Bulk Sumba
-        slide12.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK SUMBA'
+        slide12.placeholders[10].text = 'BULK SUMBA \nOPS PERFORMANCE DASHBOARD'
         slide12.placeholders[17].text = 'Berau Coal'
         slide12.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
         slide12.shapes.add_picture('img/Volume Bulk Sumba.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
@@ -388,7 +388,7 @@ def update_charts(n_clicks, data):
         slide12.shapes.add_picture('img/NLR Bulk Sumba.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
                             
         # slide13 Bulk Java
-        slide13.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK JAVA'
+        slide13.placeholders[10].text = 'BULK JAVA \nOPS PERFORMANCE DASHBOARD'
         slide13.placeholders[17].text = 'PSS'
         slide13.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
         slide13.shapes.add_picture('img/Volume Bulk Java.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
@@ -397,7 +397,7 @@ def update_charts(n_clicks, data):
         slide13.shapes.add_picture('img/NLR Bulk Java.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
                             
         # slide14 Bulk Natuna
-        slide14.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK NATUNA'
+        slide14.placeholders[10].text = 'BULK NATUNA \nOPS PERFORMANCE DASHBOARD'
         slide14.placeholders[17].text = 'BIB'
         slide14.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
         slide14.shapes.add_picture('img/Volume Bulk Natuna.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
@@ -406,7 +406,7 @@ def update_charts(n_clicks, data):
         slide14.shapes.add_picture('img/NLR Bulk Natuna.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
                             
         # slide15 Bulk Celebes
-        slide15.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK CELEBES'
+        slide15.placeholders[10].text = 'BULK CELEBES \nOPS PERFORMANCE DASHBOARD'
         slide15.placeholders[17].text = 'NORDEN'
         slide15.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
         slide15.shapes.add_picture('img/Volume Bulk Celebes.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
@@ -415,7 +415,7 @@ def update_charts(n_clicks, data):
         slide15.shapes.add_picture('img/NLR Bulk Celebes.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
                             
         # slide16 Bulk Borneo
-        slide16.placeholders[10].text = 'OPS PERFORMANCE DASHBOARD \nBULK BORNEO'
+        slide16.placeholders[10].text = 'BULK BORNEO \nOPS PERFORMANCE DASHBOARD'
         slide16.placeholders[17].text = 'LDPL-KAMSAR'
         slide16.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
         slide16.shapes.add_picture('img/Volume Bulk Borneo.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
