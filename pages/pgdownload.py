@@ -126,7 +126,7 @@ def update_charts(n_clicks, data):
     fr_natuna = plot_fr(dat_natuna, "Fuel Ratio Bulk Natuna", 0.40)
     fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes", 0.37)
     fr_borneo = plot_fr(dat_borneo, "Fuel Ratio Bulk Borneo", 0.24)
-    fr_greencalypso = plot_fr(dat_greencalypso, "Fuel Ratio Green Calypso", 0.32)
+    fr_greencalypso = plot_fr(dat_greencalypso, "Fuel Ratio Green Calypso", 0)
 
     nlr_type_sumatra = plot_nlr_type(dat_sumatra, "NLR Bulk Sumatra", 52000)
     nlr_type_dewata = plot_nlr_type(dat_dewata, "NLR Bulk Dewata", 36815)
@@ -138,7 +138,7 @@ def update_charts(n_clicks, data):
     nlr_type_natuna = plot_nlr_type(dat_natuna, "NLR Bulk Natuna", 18400)
     nlr_type_celebes = plot_nlr_type(dat_celebes, "NLR Bulk Celebes", 46000)
     nlr_type_borneo = plot_nlr_type(dat_borneo, "NLR Bulk Borneo", 25000)
-    nlr_type_greencalypso = plot_nlr_type(dat_greencalypso, "NLR Green Calypso", 28000)
+    nlr_type_greencalypso = plot_nlr_type(dat_greencalypso, "NLR Green Calypso", 19117)
 
     glr_type_sumatra = plot_glr_type(dat_sumatra, "GLR Bulk Sumatra")
     glr_type_dewata = plot_glr_type(dat_dewata, "GLR Bulk Dewata")
