@@ -165,7 +165,7 @@ def update_data(n):
     dat_natuna = preprocessing(df_natuna)
 
     #-- 9. Bulk Sumba
-    df_sumba = pd.DataFrame(data['Bulk Sumba'])
+    df_sumba = pd.DataFrame(data['Bulk Sumba (BGE)'])
     df_sumba = df_sumba.replace(r'^\s*$', np.nan, regex=True)
     dat_sumba = preprocessing(df_sumba)
 
@@ -173,6 +173,11 @@ def update_data(n):
     df_derawan = pd.DataFrame(data['Bulk Derawan'])
     df_derawan = df_derawan.replace(r'^\s*$', np.nan, regex=True)
     dat_derawan = preprocessing(df_derawan)
+
+    #-- 10. Green Calypso
+    df_greencalypso = pd.DataFrame(data['Green Calypso'])
+    df_greencalypso = df_greencalypso.replace(r'^\s*$', np.nan, regex=True)
+    dat_greencalypso = preprocessing(df_greencalypso)
 
     data_dict = {'Bulk Borneo':dat_borneo.to_dict('records'), 
                  'Bulk Celebes':dat_celebes.to_dict('records'),
@@ -183,7 +188,8 @@ def update_data(n):
                  'Ocean Flow 1':dat_of1.to_dict('records'),
                  'Bulk Natuna':dat_natuna.to_dict('records'),
                  'Bulk Sumba':dat_sumba.to_dict('records'),
-                 'Bulk Derawan':dat_derawan.to_dict('records')}
+                 'Bulk Derawan':dat_derawan.to_dict('records'),
+                 'Green Calypso':dat_greencalypso.to_dict('records')}
 
     return data_dict
 
