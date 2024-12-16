@@ -78,6 +78,7 @@ def update_charts(n_clicks, data):
     dat_sumba = pd.DataFrame(data['Bulk Sumba'])
     dat_derawan = pd.DataFrame(data['Bulk Derawan'])
     dat_greencalypso = pd.DataFrame(data['Green Calypso'])
+    dat_putrialysha = pd.DataFrame(data['Putri Alysha'])
 
     # Chart
     volume_sumatra = plot_volume(dat_sumatra, "Volume Bulk Sumatra")
@@ -91,6 +92,7 @@ def update_charts(n_clicks, data):
     volume_celebes = plot_volume(dat_celebes, "Volume Bulk Celebes")
     volume_borneo = plot_volume(dat_borneo, "Volume Bulk Borneo")
     volume_greencalypso = plot_volume(dat_greencalypso, "Volume Green Calypso")
+    volume_putrialysha = plot_volume(dat_putrialysha, "Volume Putri Alysha")
 
     nlr_sumatra = plot_nlr(dat_sumatra, "NLR Bulk Sumatra")
     nlr_dewata = plot_nlr(dat_dewata, "NLR Bulk Dewata")
@@ -103,6 +105,7 @@ def update_charts(n_clicks, data):
     nlr_celebes = plot_nlr(dat_celebes, "NLR Bulk Celebes")
     nlr_borneo = plot_nlr(dat_borneo, "NLR Bulk Borneo")
     nlr_greencalypso = plot_nlr(dat_greencalypso, "NLR Green Calypso")
+    nlr_putrialysha = plot_nlr(dat_putrialysha, "NLR Putri Alysha")
 
     glr_sumatra = plot_glr(dat_sumatra, "GLR Bulk Sumatra")
     glr_dewata = plot_glr(dat_dewata, "GLR Bulk Dewata")
@@ -115,6 +118,7 @@ def update_charts(n_clicks, data):
     glr_celebes = plot_glr(dat_celebes, "GLR Bulk Celebes")
     glr_borneo = plot_glr(dat_borneo, "GLR Bulk Borneo")
     glr_greencalypso = plot_glr(dat_greencalypso, "GLR Green Calypso")
+    glr_putrialysha = plot_glr(dat_putrialysha, "GLR Putri Alysha")
 
     fr_sumatra = plot_fr(dat_sumatra, "Fuel Ratio Bulk Sumatra", 0.24)
     fr_dewata = plot_fr(dat_dewata, "Fuel Ratio Bulk Dewata", 0.29)
@@ -127,6 +131,7 @@ def update_charts(n_clicks, data):
     fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes", 0.37)
     fr_borneo = plot_fr(dat_borneo, "Fuel Ratio Bulk Borneo", 0.24)
     fr_greencalypso = plot_fr(dat_greencalypso, "Fuel Ratio Green Calypso", 0)
+    fr_putrialysha = plot_fr(dat_putrialysha, "Fuel Ratio Putri Alysha", 0)
 
     nlr_type_sumatra = plot_nlr_type(dat_sumatra, "NLR Bulk Sumatra", 52000)
     nlr_type_dewata = plot_nlr_type(dat_dewata, "NLR Bulk Dewata", 36815)
@@ -139,6 +144,7 @@ def update_charts(n_clicks, data):
     nlr_type_celebes = plot_nlr_type(dat_celebes, "NLR Bulk Celebes", 46000)
     nlr_type_borneo = plot_nlr_type(dat_borneo, "NLR Bulk Borneo", 25000)
     nlr_type_greencalypso = plot_nlr_type(dat_greencalypso, "NLR Green Calypso", 0)
+    nlr_type_putrialysha = plot_nlr_type(dat_putrialysha, "NLR Putri Alysha", 0)
 
     glr_type_sumatra = plot_glr_type(dat_sumatra, "GLR Bulk Sumatra")
     glr_type_dewata = plot_glr_type(dat_dewata, "GLR Bulk Dewata")
@@ -151,6 +157,7 @@ def update_charts(n_clicks, data):
     glr_type_celebes = plot_glr_type(dat_celebes, "GLR Bulk Celebes")
     glr_type_borneo = plot_glr_type(dat_borneo, "GLR Bulk Borneo")
     glr_type_greencalypso = plot_glr_type(dat_greencalypso, "GLR Green Calypso")
+    glr_type_putrialysha = plot_glr_type(dat_putrialysha, "GLR Putri Alysha")
 
     # Save img
     pio.write_image(volume_sumatra, 'img/Volume Bulk Sumatra.png')
@@ -164,6 +171,7 @@ def update_charts(n_clicks, data):
     pio.write_image(volume_celebes, 'img/Volume Bulk Celebes.png')
     pio.write_image(volume_borneo, 'img/Volume Bulk Borneo.png')
     pio.write_image(volume_greencalypso, 'img/Volume Green Calypso.png')
+    pio.write_image(volume_putrialysha, 'img/Volume Putri Alysha.png')
 
     pio.write_image(nlr_sumatra, 'img/NLR Bulk Sumatra.png')
     pio.write_image(nlr_dewata, 'img/NLR Bulk Dewata.png')
@@ -176,6 +184,7 @@ def update_charts(n_clicks, data):
     pio.write_image(nlr_celebes, 'img/NLR Bulk Celebes.png')
     pio.write_image(nlr_borneo, 'img/NLR Bulk Borneo.png')
     pio.write_image(nlr_greencalypso, 'img/NLR Green Calypso.png')
+    pio.write_image(nlr_putrialysha, 'img/NLR Putri Alysha.png')
 
     pio.write_image(glr_sumatra, 'img/GLR Bulk Sumatra.png')
     pio.write_image(glr_dewata, 'img/GLR Bulk Dewata.png')
@@ -188,6 +197,7 @@ def update_charts(n_clicks, data):
     pio.write_image(glr_celebes, 'img/GLR Bulk Celebes.png')
     pio.write_image(glr_borneo, 'img/GLR Bulk Borneo.png')
     pio.write_image(glr_greencalypso, 'img/GLR Green Calypso.png')
+    pio.write_image(glr_putrialysha, 'img/GLR Putri Alysha.png')
 
     pio.write_image(fr_sumatra, 'img/Fuel Ratio Bulk Sumatra.png')
     pio.write_image(fr_dewata, 'img/Fuel Ratio Bulk Dewata.png')
@@ -200,6 +210,7 @@ def update_charts(n_clicks, data):
     pio.write_image(fr_celebes, 'img/Fuel Ratio Bulk Celebes.png')
     pio.write_image(fr_borneo, 'img/Fuel Ratio Bulk Borneo.png')
     pio.write_image(fr_greencalypso, 'img/Fuel Ratio Green Calypso.png')
+    pio.write_image(fr_putrialysha, 'img/Fuel Ratio Putri Alysha.png')
 
     pio.write_image(nlr_type_sumatra, 'img/NLR_type Bulk Sumatra.png')
     pio.write_image(nlr_type_dewata, 'img/NLR_type Bulk Dewata.png')
@@ -212,6 +223,7 @@ def update_charts(n_clicks, data):
     pio.write_image(nlr_type_celebes, 'img/NLR_type Bulk Celebes.png')
     pio.write_image(nlr_type_borneo, 'img/NLR_type Bulk Borneo.png')
     pio.write_image(nlr_type_greencalypso, 'img/NLR_type Green Calypso.png')
+    pio.write_image(nlr_type_putrialysha, 'img/NLR_type Putri Alysha.png')
 
     pio.write_image(glr_type_sumatra, 'img/GLR_type Bulk Sumatra.png')
     pio.write_image(glr_type_dewata, 'img/GLR_type Bulk Dewata.png')
@@ -224,6 +236,7 @@ def update_charts(n_clicks, data):
     pio.write_image(glr_type_celebes, 'img/GLR_type Bulk Celebes.png')
     pio.write_image(glr_type_borneo, 'img/GLR_type Bulk Borneo.png') 
     pio.write_image(glr_type_greencalypso, 'img/GLR_type Green Calypso.png')   
+    pio.write_image(glr_type_putrialysha, 'img/GLR_type Putri Alysha.png')  
 
     path = os.getcwd()
     download_date = html.Strong('Downloaded slides as per ' + str(dat_sumatra['Month'].iloc[-2]))
@@ -234,30 +247,32 @@ def update_charts(n_clicks, data):
         prs = Presentation(pptx)
 
         # define slidelayouts 
-        slide = prs.slides.add_slide(prs.slide_layouts[0])
-        slide1 = prs.slides.add_slide(prs.slide_layouts[1])
-        slide2 = prs.slides.add_slide(prs.slide_layouts[1])
-        slide3 = prs.slides.add_slide(prs.slide_layouts[1])
-        slide4 = prs.slides.add_slide(prs.slide_layouts[1])
-        slide5 = prs.slides.add_slide(prs.slide_layouts[1])
-        slide19 = prs.slides.add_slide(prs.slide_layouts[1])
-        slide20 = prs.slides.add_slide(prs.slide_layouts[1])
-        slide6 = prs.slides.add_slide(prs.slide_layouts[1])
-        slide17 = prs.slides.add_slide(prs.slide_layouts[1])
-        slide18 = prs.slides.add_slide(prs.slide_layouts[1])
+        slide = prs.slides.add_slide(prs.slide_layouts[0]) #tanggal
+        slide1 = prs.slides.add_slide(prs.slide_layouts[1]) #sumatra
+        slide2 = prs.slides.add_slide(prs.slide_layouts[1]) #dewata
+        slide3 = prs.slides.add_slide(prs.slide_layouts[1]) #karimun
+        slide4 = prs.slides.add_slide(prs.slide_layouts[1]) #derawan
+        slide5 = prs.slides.add_slide(prs.slide_layouts[1]) #oceanflow1
+        slide19 = prs.slides.add_slide(prs.slide_layouts[1]) #celebes
+        slide20 = prs.slides.add_slide(prs.slide_layouts[1]) #greencalypso
+        slide6 = prs.slides.add_slide(prs.slide_layouts[1]) #sumba
+        slide22 = prs.slides.add_slide(prs.slide_layouts[1]) #putrialysha
+        slide17 = prs.slides.add_slide(prs.slide_layouts[1]) #java
+        slide18 = prs.slides.add_slide(prs.slide_layouts[1]) #natuna
 
 
-        slide7 = prs.slides.add_slide(prs.slide_layouts[3])
-        slide8 = prs.slides.add_slide(prs.slide_layouts[3])
-        slide9 = prs.slides.add_slide(prs.slide_layouts[3])
-        slide10 = prs.slides.add_slide(prs.slide_layouts[3])
-        slide11 = prs.slides.add_slide(prs.slide_layouts[3])
-        slide12 = prs.slides.add_slide(prs.slide_layouts[3])
-        slide13 = prs.slides.add_slide(prs.slide_layouts[3])
-        slide14 = prs.slides.add_slide(prs.slide_layouts[3])
-        slide15 = prs.slides.add_slide(prs.slide_layouts[3])
-        slide21 = prs.slides.add_slide(prs.slide_layouts[3])
-        slide16 = prs.slides.add_slide(prs.slide_layouts[3])
+        slide7 = prs.slides.add_slide(prs.slide_layouts[3]) #sumatra
+        slide8 = prs.slides.add_slide(prs.slide_layouts[3]) #dewata
+        slide9 = prs.slides.add_slide(prs.slide_layouts[3]) #karimun
+        slide10 = prs.slides.add_slide(prs.slide_layouts[3]) #derawan
+        slide11 = prs.slides.add_slide(prs.slide_layouts[3]) #oceanflow1
+        slide12 = prs.slides.add_slide(prs.slide_layouts[3]) #sumba
+        slide13 = prs.slides.add_slide(prs.slide_layouts[3]) #java
+        slide14 = prs.slides.add_slide(prs.slide_layouts[3]) #natuna
+        slide15 = prs.slides.add_slide(prs.slide_layouts[3]) #celebes
+        slide21 = prs.slides.add_slide(prs.slide_layouts[3]) #greencalypso
+        slide23 = prs.slides.add_slide(prs.slide_layouts[3]) #putrialysha
+        slide16 = prs.slides.add_slide(prs.slide_layouts[3]) #borneo
 
         # title slide
         title = slide.shapes.title
@@ -338,6 +353,15 @@ def update_charts(n_clicks, data):
 
         slide6.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
         slide6.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
+
+        # slide22 Berau Coal
+        slide22.placeholders[16].text = 'PUTRI ALYSHA \nBGE OPERATIONAL DASHBOARD'
+        slide22.placeholders[17].text = 'BGE'
+        slide22.shapes.add_picture('img/NLR_type Putri Alysha.png', Cm(1.5), Cm(3.5), Cm(15.2), Cm(10))
+        slide22.shapes.add_picture('img/GLR_type Putri Alysha.png', Cm(17.5), Cm(3.5), Cm(15.2), Cm(10))
+
+        slide22.shapes.add_picture('img/yellow bullet.png', Cm(1.75), Cm(14))
+        slide22.shapes.add_picture('img/yellow bullet.png', Cm(17.75), Cm(14))
 
         # slide17 Berau Coal
         slide17.placeholders[16].text = 'BULK JAVA \nPSS OPERATIONAL DASHBOARD'
@@ -438,7 +462,7 @@ def update_charts(n_clicks, data):
         slide15.shapes.add_picture('img/GLR Bulk Celebes.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
         slide15.shapes.add_picture('img/NLR Bulk Celebes.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
 
-        # slide21 Bulk Celebes
+        # slide21 Green Calypso
         slide21.placeholders[10].text = 'GREEN CALYPSO \nOPS PERFORMANCE DASHBOARD'
         slide21.placeholders[17].text = 'Berau Coal'
         slide21.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
@@ -446,6 +470,15 @@ def update_charts(n_clicks, data):
         slide21.shapes.add_picture('img/Fuel Ratio Green Calypso.png', Cm(14), Cm(3),Cm(12), Cm(7))
         slide21.shapes.add_picture('img/GLR Green Calypso.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
         slide21.shapes.add_picture('img/NLR Green Calypso.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
+
+        # slide23 Putri Alysha
+        slide23.placeholders[10].text = 'PUTRI ALYSHA \nOPS PERFORMANCE DASHBOARD'
+        slide23.placeholders[17].text = 'BGE'
+        slide23.placeholders[11].text = 'As of ' + str(date.today().strftime("%d %b %Y"))
+        slide23.shapes.add_picture('img/Volume Putri Alysha.png', Cm(1.25), Cm(3), Cm(12), Cm(7))
+        slide23.shapes.add_picture('img/Fuel Ratio Putri Alysha.png', Cm(14), Cm(3),Cm(12), Cm(7))
+        slide23.shapes.add_picture('img/GLR Putri Alysha.png', Cm(1.25), Cm(10.3), Cm(12), Cm(7))
+        slide23.shapes.add_picture('img/NLR Putri Alysha.png', Cm(14), Cm(10.3), Cm(12), Cm(7))
                             
         # slide16 Bulk Borneo
         slide16.placeholders[10].text = 'BULK BORNEO \nOPS PERFORMANCE DASHBOARD'
