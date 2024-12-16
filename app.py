@@ -174,10 +174,15 @@ def update_data(n):
     df_derawan = df_derawan.replace(r'^\s*$', np.nan, regex=True)
     dat_derawan = preprocessing(df_derawan)
 
-    #-- 10. Green Calypso
+    #-- 11. Green Calypso
     df_greencalypso = pd.DataFrame(data['Green Calypso'])
     df_greencalypso = df_greencalypso.replace(r'^\s*$', np.nan, regex=True)
     dat_greencalypso = preprocessing(df_greencalypso)
+
+    #-- 12. Putri Alysha
+    df_putrialysha = pd.DataFrame(data['Putri Alysha'])
+    df_putrialysha = df_putrialysha.replace(r'^\s*$', np.nan, regex=True)
+    dat_putrialysha = preprocessing(df_putrialysha)
 
     data_dict = {'Bulk Borneo':dat_borneo.to_dict('records'), 
                  'Bulk Celebes':dat_celebes.to_dict('records'),
@@ -189,7 +194,8 @@ def update_data(n):
                  'Bulk Natuna':dat_natuna.to_dict('records'),
                  'Bulk Sumba':dat_sumba.to_dict('records'),
                  'Bulk Derawan':dat_derawan.to_dict('records'),
-                 'Green Calypso':dat_greencalypso.to_dict('records')}
+                 'Green Calypso':dat_greencalypso.to_dict('records'),
+                 'Putri Alysha':dat_putrialysha.to_dict('records')}
 
     return data_dict
 
