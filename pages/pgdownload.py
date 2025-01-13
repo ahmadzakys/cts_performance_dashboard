@@ -545,7 +545,7 @@ def plot_volume(df, title):
             'font':{'size':40}},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['Volume Plan'].iloc[-1])*1.8],
+        yaxis_range=[0,(df['Volume Actual'].iloc[2])*1.8],
         bargroupgap=0.165,
         bargap=0.25,
         hovermode="x",
@@ -559,7 +559,7 @@ def plot_volume(df, title):
                                 line={'width': 2, 'color': 'black'})])
 
     labels = list(df['Month'])
-    labels[-1] = "YTD'24"
+    labels[-1] = "YTD'25"
 
     fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
     fig.update_yaxes(showgrid=False, visible=False)
@@ -625,7 +625,7 @@ def plot_nlr(df, title):
                                 line={'width': 2, 'color': 'black'})])
 
     labels = list(df['Month'])
-    labels[-1] = "AVG YTD'24"
+    labels[-1] = "AVG YTD'25"
 
     fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
     fig.update_yaxes(showgrid=False, visible=False)
@@ -691,7 +691,7 @@ def plot_glr(df, title):
                                 line={'width': 2, 'color': 'black'})])
 
     labels = list(df['Month'])
-    labels[-1] = "AVG YTD'24"
+    labels[-1] = "AVG YTD'25"
 
     fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
     fig.update_yaxes(showgrid=False, visible=False)
@@ -778,7 +778,7 @@ def plot_fr(df, title, baseline):
         )
     
     labels = list(df['Month'])
-    labels[-1] = "AVG YTD'24"
+    labels[-1] = "AVG YTD'25"
 
     fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
     fig.update_yaxes(showgrid=False, visible=False)
@@ -887,7 +887,7 @@ def plot_nlr_type(df, title, baseline):
         )
 
     labels = list(df['Month'])
-    labels[-1] = "AVG YTD'24"
+    labels[-1] = "AVG YTD'25"
 
     fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
     fig.update_yaxes(showgrid=False, visible=False)
@@ -975,7 +975,7 @@ def plot_glr_type(df, title):
                                 line={'width': 2, 'color': 'black'})])
 
     labels = list(df['Month'])
-    labels[-1] = "AVG YTD'24"
+    labels[-1] = "AVG YTD'25"
 
     fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
     fig.update_yaxes(showgrid=False, visible=False)
