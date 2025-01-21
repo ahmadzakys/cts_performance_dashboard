@@ -184,6 +184,11 @@ def update_data(n):
     df_putrialysha = df_putrialysha.replace(r'^\s*$', np.nan, regex=True)
     dat_putrialysha = preprocessing(df_putrialysha)
 
+    #-- 13. Bulk Bunaken
+    df_bunaken = pd.DataFrame(data['Bulk Bunaken'])
+    df_bunaken = df_bunaken.replace(r'^\s*$', np.nan, regex=True)
+    dat_bunaken = preprocessing(df_bunaken)
+
     data_dict = {'Bulk Borneo':dat_borneo.to_dict('records'), 
                  'Bulk Celebes':dat_celebes.to_dict('records'),
                  'Bulk Sumatra':dat_sumatra.to_dict('records'),
@@ -195,7 +200,8 @@ def update_data(n):
                  'Bulk Sumba':dat_sumba.to_dict('records'),
                  'Bulk Derawan':dat_derawan.to_dict('records'),
                  'Green Calypso':dat_greencalypso.to_dict('records'),
-                 'Putri Alysha':dat_putrialysha.to_dict('records')}
+                 'Putri Alysha':dat_putrialysha.to_dict('records'),
+                 'Bulk Bunaken':dat_bunaken.to_dict('records')}
 
     return data_dict
 
