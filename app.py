@@ -8,7 +8,7 @@ from dash.dependencies import Input, Output
 import pandas as pd
 import numpy as np
 import gspread
-import datetime 
+import datetime
 
 #####-----Create a Dash app instance-----#####
 app = dash.Dash(
@@ -189,6 +189,11 @@ def update_data(n):
     df_bunaken = df_bunaken.replace(r'^\s*$', np.nan, regex=True)
     dat_bunaken = preprocessing(df_bunaken)
 
+    #-- 14. STRAITS VENTURE II
+    df_svii = pd.DataFrame(data['STRAITS VENTURE II'])
+    df_svii = df_svii.replace(r'^\s*$', np.nan, regex=True)
+    dat_svii = preprocessing(df_svii)
+
     data_dict = {'Bulk Borneo':dat_borneo.to_dict('records'), 
                  'Bulk Celebes':dat_celebes.to_dict('records'),
                  'Bulk Sumatra':dat_sumatra.to_dict('records'),
@@ -201,7 +206,8 @@ def update_data(n):
                  'Bulk Derawan':dat_derawan.to_dict('records'),
                  'Green Calypso':dat_greencalypso.to_dict('records'),
                  'Putri Alysha':dat_putrialysha.to_dict('records'),
-                 'Bulk Bunaken':dat_bunaken.to_dict('records')}
+                 'Bulk Bunaken':dat_bunaken.to_dict('records'),
+                 'STRAITS VENTURE II':dat_svii.to_dict('records')}
 
     return data_dict
 
