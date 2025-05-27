@@ -143,15 +143,15 @@ def update_charts(n_clicks, data):
     fr_bunaken = plot_fr(dat_bunaken, "Fuel Ratio Bulk Bunaken", 0)
     fr_svii = plot_fr(dat_svii, "Fuel Ratio STRAITS VENTURE II", 0)
 
-    nlr_type_sumatra = plot_nlr_type(dat_sumatra, "NLR Bulk Sumatra", 52000)
-    nlr_type_dewata = plot_nlr_type(dat_dewata, "NLR Bulk Dewata", 36815)
-    nlr_type_karimun = plot_nlr_type(dat_karimun, "NLR Bulk Karimun", 46000)
+    nlr_type_sumatra = plot_nlr_type2(dat_sumatra, "NLR Bulk Sumatra", 52000, 41673)
+    nlr_type_dewata = plot_nlr_type2(dat_dewata, "NLR Bulk Dewata", 36815, 44482)
+    nlr_type_karimun = plot_nlr_type2(dat_karimun, "NLR Bulk Karimun", 46000, 26878)
     nlr_type_derawan = plot_nlr_type(dat_derawan, "NLR Bulk Derawan", 46000)
     nlr_type_of1 = plot_nlr_type(dat_of1, "NLR Ocean Flow 1", 36000)
     nlr_type_sumba = plot_nlr_type(dat_sumba, "NLR Bulk Sumba", 0)
     nlr_type_java = plot_nlr_type(dat_java, "NLR Bulk Java", 46000)
     nlr_type_natuna = plot_nlr_type(dat_natuna, "NLR Bulk Natuna", 18400)
-    nlr_type_celebes = plot_nlr_type(dat_celebes, "NLR Bulk Celebes", 46000)
+    nlr_type_celebes = plot_nlr_type2(dat_celebes, "NLR Bulk Celebes", 46000, 39783)
     nlr_type_borneo = plot_nlr_type(dat_borneo, "NLR Bulk Borneo", 25000)
     nlr_type_greencalypso = plot_nlr_type(dat_greencalypso, "NLR Green Calypso", 0)
     nlr_type_putrialysha = plot_nlr_type(dat_putrialysha, "NLR Putri Alysha", 0)
@@ -944,6 +944,136 @@ def plot_nlr_type(df, title, baseline):
             family="Verdana",
             size=27,
             color="#ffffff"
+            ),
+        align="center",
+        bordercolor="#c7c7c7",
+        borderwidth=2,
+        borderpad=4,
+        bgcolor="red",
+        opacity=0.8
+        )
+
+    labels = list(df['Month'])
+    labels[-1] = "AVG YTD'25"
+
+    fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
+    fig.update_yaxes(showgrid=False, visible=False)
+    
+    return(fig)
+
+#-- 5B. NLR Type Function Double Baseline
+def plot_nlr_type2(df, title, baseline1, baseline2):
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['NLR Single'].tail(4),
+        name='Single',
+        text=df['NLR Single'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#ffc000'))
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['NLR Blending'].tail(4),
+        name='Blending',
+        text=df['NLR Blending'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#00b1f1'))
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['NLR Gear'].tail(4),
+        name='Gear',
+        text=df['NLR Gear'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#0071c1'))
+    fig.add_trace(go.Bar(
+        x=df['Month'].tail(4),
+        y=df['NLR Barge'].tail(4),
+        name='Barge',
+        text=df['NLR Barge'].tail(4),
+        textfont_size=48,
+        textposition = 'outside',
+        hovertemplate='%{y:y}',
+        textangle=0,
+        marker_color='#92d14f'))
+    
+    fig.update_layout({
+        'height':1000,'width':1700,
+        'margin' : {'t':200, 'b':3, 'l':3, 'r':3},
+        "autosize": True,
+        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+        'paper_bgcolor': 'rgba(0, 0, 0, 0)',},
+        title={
+            'text': title,
+            'y':0.89,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'font': {'size':75}},
+        legend={
+            'yanchor':"bottom",
+            'y':-0.2,
+            'xanchor':"center",
+            'x':0.5,
+            'itemsizing': 'constant',
+            'font':{'size':30},
+            'orientation':'h'},
+        xaxis = dict(tickfont = dict(size=40)),
+        yaxis = dict(tickfont = dict(size=40)),
+        yaxis_range=[0,(df['NLR Plan'].iloc[-1])*1.65],
+        bargroupgap=0.05,
+        bargap=0.15,
+        hovermode="x",
+        shapes=[go.layout.Shape(type='rect', 
+                                xref='paper',
+                                yref='paper',
+                                x0=0,
+                                y0=-0.2,
+                                x1=1,
+                                y1=1.25,
+                                line={'width': 2, 'color': 'black'})])
+    
+    fig.add_hline(y=baseline1, line_width=1, line_dash="dash", line_color="red")
+    fig.add_annotation(
+        x=3.75,
+        y=baseline1*1.07,
+        xref="x",
+        yref="y",
+        text=str(baseline1) + ' MT/Day',
+        showarrow=False,
+        font=dict(
+            family="Verdana",
+            size=27,
+            color="#ffffff"
+            ),
+        align="center",
+        bordercolor="#c7c7c7",
+        borderwidth=2,
+        borderpad=4,
+        bgcolor="red",
+        opacity=0.8
+        )
+    
+    fig.add_hline(y=baseline2, line_width=1, line_dash="dash", line_color="red")
+    fig.add_annotation(
+        x=3.75,
+        y=baseline2*1.07,
+        xref="x",
+        yref="y",
+        text=str(baseline2) + ' MT/Day',
+        showarrow=False,
+        font=dict(
+            family="Verdana",
+            size=27,
+            color="#ff7f7f"
             ),
         align="center",
         bordercolor="#c7c7c7",
