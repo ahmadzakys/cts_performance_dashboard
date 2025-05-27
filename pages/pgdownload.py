@@ -1062,7 +1062,7 @@ def plot_nlr_type2(df, title, baseline1, baseline2):
         opacity=0.8
         )
     
-    fig.add_hline(y=baseline2, line_width=1, line_dash="dash", line_color="ff7f7f")
+    fig.add_hline(y=baseline2, line_width=1, line_dash="dash", line_color="#ff7f7f")
     fig.add_annotation(
         x=3.75,
         y=baseline2*1.07,
@@ -1079,7 +1079,7 @@ def plot_nlr_type2(df, title, baseline1, baseline2):
         bordercolor="#c7c7c7",
         borderwidth=2,
         borderpad=4,
-        bgcolor="ff7f7f",
+        bgcolor="#ff7f7f",
         opacity=0.8
         )
 
