@@ -144,7 +144,7 @@ def update_charts(n_clicks, data):
     fr_svii = plot_fr(dat_svii, "Fuel Ratio STRAITS VENTURE II", 0)
 
     nlr_type_sumatra = plot_nlr_type2(dat_sumatra, "NLR Bulk Sumatra", 52000, 41673)
-    nlr_type_dewata = plot_nlr_type2(dat_dewata, "NLR Bulk Dewata", 36815, 44482)
+    nlr_type_dewata = plot_nlr_type2(dat_dewata, "NLR Bulk Dewata", 41312, 44482)
     nlr_type_karimun = plot_nlr_type2(dat_karimun, "NLR Bulk Karimun", 46000, 26878)
     nlr_type_derawan = plot_nlr_type(dat_derawan, "NLR Bulk Derawan", 46000)
     nlr_type_of1 = plot_nlr_type(dat_of1, "NLR Ocean Flow 1", 36000)
