@@ -3,6 +3,7 @@
 [phases.setup]
 # A list of packages to install with nix
 nixPkgs = [
+  "pkgs.python310", # <--- ADD THIS LINE
   "pkgs.fontconfig",
   "pkgs.freetype",
   "pkgs.xorg.libX11",
