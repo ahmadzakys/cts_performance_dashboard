@@ -133,22 +133,22 @@ def update_charts(n_clicks, data):
     fr_karimun = plot_fr(dat_karimun, "Fuel Ratio Bulk Karimun", 0.25)
     fr_derawan = plot_fr(dat_derawan, "Fuel Ratio Bulk Derawan", 0.33)
     fr_of1 = plot_fr(dat_of1, "Fuel Ratio Ocean Flow 1", 0.32)
-    fr_sumba = plot_fr(dat_sumba, "Fuel Ratio Bulk Sumba", 0)
-    fr_java = plot_fr(dat_java, "Fuel Ratio Bulk Java", 0.27)
-    fr_natuna = plot_fr(dat_natuna, "Fuel Ratio Bulk Natuna", 0.40)
+    fr_sumba = plot_fr(dat_sumba, "Fuel Ratio Bulk Sumba", 0.35)
+    fr_java = plot_fr(dat_java, "Fuel Ratio Bulk Java", 0.25)
+    fr_natuna = plot_fr(dat_natuna, "Fuel Ratio Bulk Natuna", 0.30)
     fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes", 0.37)
     fr_borneo = plot_fr(dat_borneo, "Fuel Ratio Bulk Borneo", 0.24)
     fr_greencalypso = plot_fr(dat_greencalypso, "Fuel Ratio Green Calypso", 0)
-    fr_putrialysha = plot_fr(dat_putrialysha, "Fuel Ratio Putri Alysha", 0)
+    fr_putrialysha = plot_fr(dat_putrialysha, "Fuel Ratio Putri Alysha", 0.35)
     fr_bunaken = plot_fr(dat_bunaken, "Fuel Ratio Bulk Bunaken", 0)
-    fr_svii = plot_fr(dat_svii, "Fuel Ratio STRAITS VENTURE II", 0)
+    fr_svii = plot_fr(dat_svii, "Fuel Ratio STRAITS VENTURE II", 0.30)
 
     nlr_type_sumatra = plot_nlr_type2(dat_sumatra, "NLR Bulk Sumatra", 52000, 41673)
     nlr_type_dewata = plot_nlr_type2(dat_dewata, "NLR Bulk Dewata", 39572, 44482)
     nlr_type_karimun = plot_nlr_type2(dat_karimun, "NLR Bulk Karimun", 46000, 26878)
     nlr_type_derawan = plot_nlr_type(dat_derawan, "NLR Bulk Derawan", 46000)
     nlr_type_of1 = plot_nlr_type(dat_of1, "NLR Ocean Flow 1", 36000)
-    nlr_type_sumba = plot_nlr_type(dat_sumba, "NLR Bulk Sumba", 0)
+    nlr_type_sumba = plot_nlr_type(dat_sumba, "NLR Bulk Sumba", 15000)
     nlr_type_java = plot_nlr_type(dat_java, "NLR Bulk Java", 46000)
     nlr_type_natuna = plot_nlr_type(dat_natuna, "NLR Bulk Natuna", 18400)
     nlr_type_celebes = plot_nlr_type2(dat_celebes, "NLR Bulk Celebes", 46000, 39783)
@@ -1179,3 +1179,4 @@ def plot_glr_type(df, title):
     
 
     return(fig)
+
