@@ -154,9 +154,9 @@ def update_charts(n_clicks, data):
     nlr_type_celebes = plot_nlr_type2(dat_celebes, "NLR Bulk Celebes", 46000, 39783)
     nlr_type_borneo = plot_nlr_type(dat_borneo, "NLR Bulk Borneo", 25000)
     nlr_type_greencalypso = plot_nlr_type(dat_greencalypso, "NLR Green Calypso", 0)
-    nlr_type_putrialysha = plot_nlr_type(dat_putrialysha, "NLR Putri Alysha", 0)
+    nlr_type_putrialysha = plot_nlr_type(dat_putrialysha, "NLR Putri Alysha", 15000)
     nlr_type_bunaken = plot_nlr_type(dat_bunaken, "NLR Bulk Bunaken", 0)
-    nlr_type_svii = plot_nlr_type(dat_svii, "NLR STRAITS VENTURE II", 0)
+    nlr_type_svii = plot_nlr_type(dat_svii, "NLR STRAITS VENTURE II", 25000)
 
     glr_type_sumatra = plot_glr_type(dat_sumatra, "GLR Bulk Sumatra")
     glr_type_dewata = plot_glr_type(dat_dewata, "GLR Bulk Dewata")
@@ -1177,4 +1177,5 @@ def plot_glr_type(df, title):
     fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
     fig.update_yaxes(showgrid=False, visible=False)
     
+
     return(fig)
