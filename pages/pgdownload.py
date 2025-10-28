@@ -141,7 +141,7 @@ def update_charts(n_clicks, data):
     fr_greencalypso = plot_fr(dat_greencalypso, "Fuel Ratio Green Calypso", 0)
     fr_putrialysha = plot_fr(dat_putrialysha, "Fuel Ratio Putri Alysha", 0.35)
     fr_bunaken = plot_fr(dat_bunaken, "Fuel Ratio Bulk Bunaken", 0)
-    fr_svii = plot_fr(dat_svii, "Fuel Ratio STRAITS VENTURE II", 0.30)
+    fr_svii = plot_fr(dat_svii, "Fuel Ratio STRAITS VENTURE II", 0)
 
     nlr_type_sumatra = plot_nlr_type2(dat_sumatra, "NLR Bulk Sumatra", 52000, 41673)
     nlr_type_dewata = plot_nlr_type2(dat_dewata, "NLR Bulk Dewata", 39572, 44482)
@@ -149,7 +149,7 @@ def update_charts(n_clicks, data):
     nlr_type_derawan = plot_nlr_type(dat_derawan, "NLR Bulk Derawan", 46000)
     nlr_type_of1 = plot_nlr_type(dat_of1, "NLR Ocean Flow 1", 36000)
     nlr_type_sumba = plot_nlr_type(dat_sumba, "NLR Bulk Sumba", 15000)
-    nlr_type_java = plot_nlr_type(dat_java, "NLR Bulk Java", 46000)
+    nlr_type_java = plot_nlr_type(dat_java, "NLR Bulk Java", 32000)
     nlr_type_natuna = plot_nlr_type(dat_natuna, "NLR Bulk Natuna", 18400)
     nlr_type_celebes = plot_nlr_type2(dat_celebes, "NLR Bulk Celebes", 46000, 39783)
     nlr_type_borneo = plot_nlr_type(dat_borneo, "NLR Bulk Borneo", 25000)
@@ -1179,4 +1179,5 @@ def plot_glr_type(df, title):
     
 
     return(fig)
+
 
