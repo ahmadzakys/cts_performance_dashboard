@@ -1158,7 +1158,7 @@ def plot_glr_type(df, title):
             'orientation':'h'},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.75],
+        yaxis_range=[0,(df['GLR Plan'].iloc[-2])*1.65],
         bargroupgap=0.05,
         bargap=0.15,
         hovermode="x",
@@ -1179,6 +1179,7 @@ def plot_glr_type(df, title):
     
 
     return(fig)
+
 
 
 
