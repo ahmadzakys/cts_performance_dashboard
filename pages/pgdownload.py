@@ -133,13 +133,13 @@ def update_charts(n_clicks, data):
     fr_karimun = plot_fr(dat_karimun, "Fuel Ratio Bulk Karimun", 0.25)
     fr_derawan = plot_fr(dat_derawan, "Fuel Ratio Bulk Derawan", 0.33)
     fr_of1 = plot_fr(dat_of1, "Fuel Ratio Ocean Flow 1", 0.32)
-    fr_sumba = plot_fr(dat_sumba, "Fuel Ratio Bulk Sumba", 0.35)
-    fr_java = plot_fr(dat_java, "Fuel Ratio Bulk Java", 0.25)
-    fr_natuna = plot_fr(dat_natuna, "Fuel Ratio Bulk Natuna", 0.30)
+    fr_sumba = plot_fr(dat_sumba, "Fuel Ratio Bulk Sumba", 0)
+    fr_java = plot_fr(dat_java, "Fuel Ratio Bulk Java", 0.27)
+    fr_natuna = plot_fr(dat_natuna, "Fuel Ratio Bulk Natuna", 0.40)
     fr_celebes = plot_fr(dat_celebes, "Fuel Ratio Bulk Celebes", 0.37)
     fr_borneo = plot_fr(dat_borneo, "Fuel Ratio Bulk Borneo", 0.24)
     fr_greencalypso = plot_fr(dat_greencalypso, "Fuel Ratio Green Calypso", 0)
-    fr_putrialysha = plot_fr(dat_putrialysha, "Fuel Ratio Putri Alysha", 0.35)
+    fr_putrialysha = plot_fr(dat_putrialysha, "Fuel Ratio Putri Alysha", 0)
     fr_bunaken = plot_fr(dat_bunaken, "Fuel Ratio Bulk Bunaken", 0)
     fr_svii = plot_fr(dat_svii, "Fuel Ratio STRAITS VENTURE II", 0)
 
@@ -148,15 +148,15 @@ def update_charts(n_clicks, data):
     nlr_type_karimun = plot_nlr_type2(dat_karimun, "NLR Bulk Karimun", 46000, 26878)
     nlr_type_derawan = plot_nlr_type(dat_derawan, "NLR Bulk Derawan", 46000)
     nlr_type_of1 = plot_nlr_type(dat_of1, "NLR Ocean Flow 1", 36000)
-    nlr_type_sumba = plot_nlr_type(dat_sumba, "NLR Bulk Sumba", 15000)
-    nlr_type_java = plot_nlr_type(dat_java, "NLR Bulk Java", 32000)
+    nlr_type_sumba = plot_nlr_type(dat_sumba, "NLR Bulk Sumba", 0)
+    nlr_type_java = plot_nlr_type(dat_java, "NLR Bulk Java", 46000)
     nlr_type_natuna = plot_nlr_type(dat_natuna, "NLR Bulk Natuna", 18400)
     nlr_type_celebes = plot_nlr_type2(dat_celebes, "NLR Bulk Celebes", 46000, 39783)
     nlr_type_borneo = plot_nlr_type(dat_borneo, "NLR Bulk Borneo", 25000)
-    nlr_type_greencalypso = plot_nlr_type2(dat_greencalypso, "NLR Green Calypso", 22000, 20000)
-    nlr_type_putrialysha = plot_nlr_type(dat_putrialysha, "NLR Putri Alysha", 15000)
-    nlr_type_bunaken = plot_nlr_type2(dat_bunaken, "NLR Bulk Bunaken", 17000, 15000)
-    nlr_type_svii = plot_nlr_type(dat_svii, "NLR STRAITS VENTURE II", 25000)
+    nlr_type_greencalypso = plot_nlr_type(dat_greencalypso, "NLR Green Calypso", 0)
+    nlr_type_putrialysha = plot_nlr_type(dat_putrialysha, "NLR Putri Alysha", 0)
+    nlr_type_bunaken = plot_nlr_type(dat_bunaken, "NLR Bulk Bunaken", 0)
+    nlr_type_svii = plot_nlr_type(dat_svii, "NLR STRAITS VENTURE II", 0)
 
     glr_type_sumatra = plot_glr_type(dat_sumatra, "GLR Bulk Sumatra")
     glr_type_dewata = plot_glr_type(dat_dewata, "GLR Bulk Dewata")
@@ -744,7 +744,7 @@ def plot_glr(df, title):
             'font':{'size':40}},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.65],
+        yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.5],
         bargroupgap=0.165,
         bargap=0.25,
         hovermode="x",
@@ -1158,7 +1158,7 @@ def plot_glr_type(df, title):
             'orientation':'h'},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['GLR Plan'].iloc[-2])*1.95],
+        yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.75],
         bargroupgap=0.05,
         bargap=0.15,
         hovermode="x",
@@ -1177,14 +1177,4 @@ def plot_glr_type(df, title):
     fig.update_xaxes(linecolor='black', tickvals=np.arange(4), ticktext=labels[-4:])
     fig.update_yaxes(showgrid=False, visible=False)
     
-
     return(fig)
-
-
-
-
-
-
-
-
-
