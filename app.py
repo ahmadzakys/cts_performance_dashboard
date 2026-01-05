@@ -70,7 +70,7 @@ def preprocessing(df):
     dat = df.copy()
     #Rename month columns
     #Month = dat['Month'].astype('datetime64')
-    Month = pd.to_datetime(df['Month'], dayfirst=True)
+    Month = pd.to_datetime(df['Month'], dayfirst=True, errors='coerce')
     month_name = []
     for i in range(len(Month)) :
         month_name.append(Month[i].strftime('%b-%y'))
@@ -82,8 +82,12 @@ def preprocessing(df):
     dat['Month'] = month_name
     
     #Aggregate data
-    total = dat[dat['Year'] == datetime.date.today().year][['Volume Plan', 'Volume Actual']].apply(np.sum)
-    avg = round(dat[dat['Year'] == datetime.date.today().year][['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net',
+    # total = dat[dat['Year'] == datetime.date.today().year][['Volume Plan', 'Volume Actual']].apply(np.sum)
+    # avg = round(dat[dat['Year'] == datetime.date.today().year][['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net',
+    #                                                             'NLR Single', 'NLR Blending', 'NLR Gear', 'NLR Barge',  
+    #                                                             'GLR Single', 'GLR Blending', 'GLR Gear', 'GLR Barge']].apply(np.nanmean),2)
+    total = dat[dat['Year'] == 2025][['Volume Plan', 'Volume Actual']].apply(np.sum)
+    avg = round(dat[dat['Year'] == 2025][['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net',
                                                                 'NLR Single', 'NLR Blending', 'NLR Gear', 'NLR Barge',  
                                                                 'GLR Single', 'GLR Blending', 'GLR Gear', 'GLR Barge']].apply(np.nanmean),2)
     per_v = total['Volume Actual']/total['Volume Plan']*100
@@ -123,7 +127,7 @@ def preprocessing(df):
 def update_data(n):
     data = load_google_sheets_data()
 
-    df_sumatra = pd.DataFrame(data['Bulk Sumatra'])
+    # df_sumatra = pd.DataFrame(data['Bulk Sumatra'])
     #-- 1. Bulk Borneo
     df_borneo = pd.DataFrame(data['Bulk Borneo'])
     df_borneo = df_borneo.replace(r'^\s*$', np.nan, regex=True)
