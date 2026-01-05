@@ -744,7 +744,7 @@ def plot_glr(df, title):
             'font':{'size':40}},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.5],
+        yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.75],
         bargroupgap=0.165,
         bargap=0.25,
         hovermode="x",
