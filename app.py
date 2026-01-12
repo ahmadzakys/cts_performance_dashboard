@@ -77,19 +77,19 @@ def preprocessing(df):
 
     month_name[-1] = dat['Month'].iloc[-1][0:2] + '-' + month_name[-1]
     dat['Date'] = dat['Month']
-    dat['Date'] = dat['Date'].astype('datetime64')
+    dat['Date'] = dat['Date'].astype('datetime64[ns]')
     dat['Year'] = dat['Date'].dt.year
     dat['Month'] = month_name
     
     #Aggregate data
-    # total = dat[dat['Year'] == datetime.date.today().year][['Volume Plan', 'Volume Actual']].apply(np.sum)
-    # avg = round(dat[dat['Year'] == datetime.date.today().year][['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net',
-    #                                                             'NLR Single', 'NLR Blending', 'NLR Gear', 'NLR Barge',  
-    #                                                             'GLR Single', 'GLR Blending', 'GLR Gear', 'GLR Barge']].apply(np.nanmean),2)
-    total = dat[dat['Year'] == 2025][['Volume Plan', 'Volume Actual']].apply(np.sum)
-    avg = round(dat[dat['Year'] == 2025][['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net',
+    total = dat[dat['Year'] == datetime.date.today().year][['Volume Plan', 'Volume Actual']].apply(np.sum)
+    avg = round(dat[dat['Year'] == datetime.date.today().year][['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net',
                                                                 'NLR Single', 'NLR Blending', 'NLR Gear', 'NLR Barge',  
                                                                 'GLR Single', 'GLR Blending', 'GLR Gear', 'GLR Barge']].apply(np.nanmean),2)
+    # total = dat[dat['Year'] == 2025][['Volume Plan', 'Volume Actual']].apply(np.sum)
+    # avg = round(dat[dat['Year'] == 2025][['NLR Plan', 'NLR Actual', 'GLR Plan', 'GLR Actual','Fuel Ratio Gross', 'Fuel Ratio Net',
+    #                                                             'NLR Single', 'NLR Blending', 'NLR Gear', 'NLR Barge',  
+    #                                                             'GLR Single', 'GLR Blending', 'GLR Gear', 'GLR Barge']].apply(np.nanmean),2)
     per_v = total['Volume Actual']/total['Volume Plan']*100
     per_nlr = avg['NLR Actual']/avg['NLR Plan']*100
     per_glr = avg['GLR Actual']/avg['GLR Plan']*100
