@@ -10,6 +10,7 @@ import numpy as np
 import gspread
 import datetime
 
+import os
 #####-----Create a Dash app instance-----#####
 app = dash.Dash(
     __name__,
@@ -216,5 +217,10 @@ def update_data(n):
     return data_dict
 
 ######-----Start the Dash server-----#####
-if __name__ == "__main__":
-    app.run_server(debug=True)
+# if __name__ == "__main__":
+
+#     app.run_server(debug=True)
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 8050))
+    app.run_server(debug=False, host='0.0.0.0', port=port)
