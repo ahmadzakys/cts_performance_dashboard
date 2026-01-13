@@ -17,6 +17,9 @@ app = dash.Dash(
     external_stylesheets=[dbc.themes.LITERA],
     use_pages=True,
     )
+
+server = app.server
+
 app.title = 'CTS Performance Dashboard'
 
 ##-----Navbar
@@ -224,3 +227,4 @@ def update_data(n):
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8050))
     app.run_server(debug=False, host='0.0.0.0', port=port)
+
