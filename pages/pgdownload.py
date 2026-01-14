@@ -568,6 +568,11 @@ def update_charts(n_clicks, data):
 ##-----Function
 #-- 1. Volume Function
 def plot_volume(df, title):
+
+    max_val = max(
+        df['Volume Plan'].tail(4).max(), 
+        df['Volume Actual'].tail(4).max())
+
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
@@ -611,7 +616,7 @@ def plot_volume(df, title):
             'font':{'size':40}},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['Volume Plan'].iloc[-1])*1.8],
+        yaxis_range=[0, max_val * 1.35],  # <--- NEW LINE (1.35 gives 35% headroom)
         # yaxis_range=[0,850],
         bargroupgap=0.165,
         bargap=0.25,
@@ -635,6 +640,11 @@ def plot_volume(df, title):
 
 #-- 2. NLR Function
 def plot_nlr(df, title):
+
+    max_val = max(
+        df['NLR Plan'].tail(4).max(), 
+        df['NLR Actual'].tail(4).max())
+
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
@@ -678,7 +688,7 @@ def plot_nlr(df, title):
             'font':{'size':40}},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['NLR Plan'].iloc[-1])*1.65],
+        yaxis_range=[0, max_val * 1.35],  # <--- NEW LINE (1.35 gives 35% headroom)
         bargroupgap=0.165,
         bargap=0.25,
         hovermode="x",
@@ -701,6 +711,11 @@ def plot_nlr(df, title):
 
 #-- 3. GLR Function
 def plot_glr(df, title):
+
+    max_val = max(
+        df['GLR Plan'].tail(4).max(), 
+        df['GLR Actual'].tail(4).max())
+
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
@@ -744,7 +759,7 @@ def plot_glr(df, title):
             'font':{'size':40}},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.75],
+        yaxis_range=[0, max_val * 1.35],  # <--- NEW LINE (1.35 gives 35% headroom)
         bargroupgap=0.165,
         bargap=0.25,
         hovermode="x",
@@ -854,6 +869,14 @@ def plot_fr(df, title, baseline):
 
 #-- 5. NLR Type Function
 def plot_nlr_type(df, title, baseline):
+
+    max_val = max(
+        df['NLR Single'].tail(4).max(), 
+        df['NLR Blending'].tail(4).max(),
+        df['NLR Gear'].tail(4).max(),
+        df['NLR Barge'].tail(4).max(),
+        )
+
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
@@ -919,7 +942,8 @@ def plot_nlr_type(df, title, baseline):
             'orientation':'h'},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['NLR Plan'].iloc[-1])*1.65],
+        # yaxis_range=[0,(df['NLR Plan'].iloc[-1])*1.65],
+        yaxis_range=[0, max_val * 1.35],  # <--- NEW LINE (1.35 gives 35% headroom)
         bargroupgap=0.05,
         bargap=0.15,
         hovermode="x",
@@ -963,6 +987,14 @@ def plot_nlr_type(df, title, baseline):
 
 #-- 5B. NLR Type Function Double Baseline
 def plot_nlr_type2(df, title, baseline1, baseline2):
+
+    max_val = max(
+        df['NLR Single'].tail(4).max(), 
+        df['NLR Blending'].tail(4).max(),
+        df['NLR Gear'].tail(4).max(),
+        df['NLR Barge'].tail(4).max(),
+        )
+
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
@@ -1028,7 +1060,8 @@ def plot_nlr_type2(df, title, baseline1, baseline2):
             'orientation':'h'},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['NLR Plan'].iloc[-1])*1.65],
+        # yaxis_range=[0,(df['NLR Plan'].iloc[-1])*1.65],
+        yaxis_range=[0, max_val * 1.35],  # <--- NEW LINE (1.35 gives 35% headroom)
         bargroupgap=0.05,
         bargap=0.15,
         hovermode="x",
@@ -1093,6 +1126,14 @@ def plot_nlr_type2(df, title, baseline1, baseline2):
 
 #-- 6. GLR Type Function
 def plot_glr_type(df, title):
+
+    max_val = max(
+        df['GLR Single'].tail(4).max(), 
+        df['GLR Blending'].tail(4).max(),
+        df['GLR Gear'].tail(4).max(),
+        df['GLR Barge'].tail(4).max(),
+        )
+
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=df['Month'].tail(4),
@@ -1158,7 +1199,8 @@ def plot_glr_type(df, title):
             'orientation':'h'},
         xaxis = dict(tickfont = dict(size=40)),
         yaxis = dict(tickfont = dict(size=40)),
-        yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.75],
+        # yaxis_range=[0,(df['GLR Plan'].iloc[-1])*1.75],
+        yaxis_range=[0, max_val * 1.35],  # <--- NEW LINE (1.35 gives 35% headroom)
         bargroupgap=0.05,
         bargap=0.15,
         hovermode="x",
